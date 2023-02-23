@@ -9,3 +9,10 @@
 .product__thumb img {
   width: 100%;
 }
+
+.product__image {
+  cursor: pointer;
+}
+.product__view-more {
+  cursor: pointer;
+}

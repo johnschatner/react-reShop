@@ -20,7 +20,7 @@ function Search(props) {
   const searchExitHandler = () => {
     // Fix unwanted behaviour where you cant click on the livesearch without
     // the results disappearing
-    // setIsSearching(false);
+    setIsSearching(false);
   };
 
   const liveSearch = (e) => {
@@ -42,10 +42,14 @@ function Search(props) {
 
   return (
     <div>
-      <form onSubmit={formHandler}>
+      <form
+        className="search-form"
+        tabIndex={"0"}
+        onBlur={searchExitHandler}
+        onSubmit={formHandler}
+      >
         <input
           onFocus={searchActiveHandler}
-          onBlur={searchExitHandler}
           onChange={liveSearch}
           className="form-control"
           type="text"

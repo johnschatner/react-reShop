@@ -1,8 +1,15 @@
+.search-form {
+  width: fit-content;
+}
+
 .search-results {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: rgb(200, 200, 200);
-  border-radius: 12px;
+  background-color: rgba(131, 131, 131, 0.46);
+
+  margin-top: 0.5rem;
+  border-radius: 4px;
 }
 .search-results .product-card {
   flex-direction: row;

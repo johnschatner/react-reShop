@@ -4,7 +4,6 @@ import "./App.css";
 
 // Components
 import ProductLoader from "./Components/ProductLoader/ProductLoader";
-import Product from "./Components/Product/Product";
 import ProductGrid from "./Components/Product/ProductGrid";
 import Search from "./Components/Search/Search";
 
@@ -21,7 +20,8 @@ function App() {
     setCart((cart) => [...cart, added]);
   };
 
-  console.log(cart);
+  console.log("Products", products);
+  console.log("Cart", cart);
 
   return (
     <div className="App">

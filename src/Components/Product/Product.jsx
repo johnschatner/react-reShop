@@ -1,6 +1,16 @@
+import { useState } from "react";
 import "./Product.css";
+import ProductModal from "./ProductModal";
 
 function Product(props) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   // One less layer of abstraction
   const p = props.product;
 
@@ -12,7 +22,9 @@ function Product(props) {
     <div className="product-card">
       <div className="product__image">
         <div className="product__thumb">
-          <img src={`/src/products/${p.thumbnail}.avif`} alt={p.name} />
+          <a onMouseDown={(e) => e.preventDefault()} onClick={handleOpen}>
+            <img src={`/src/products/${p.thumbnail}.avif`} alt={p.name} />
+          </a>
         </div>
       </div>
       <div className="product__content">
@@ -24,7 +36,23 @@ function Product(props) {
           {p.price}
         </div>
         <div className="product__add-to-cart">
-          <button onClick={addToCartHandler}>Add to cart</button>
+          {/* onMouseDown.. prevents onBlur from firing in Search.jsx */}
+          <button
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={addToCartHandler}
+          >
+            Add to cart
+          </button>
+        </div>
+        <div className="product__view-more">
+          <a onMouseDown={(e) => e.preventDefault()} onClick={handleOpen}>
+            View more
+          </a>
+          <ProductModal
+            open={open}
+            onClose={handleClose}
+            product={p}
+          ></ProductModal>
         </div>
         <div className="product__description">{/* p.description */}</div>
       </div>
