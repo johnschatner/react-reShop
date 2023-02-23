@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import NewProduct from "../NewProduct/NewProduct";
 
 function ProductLoader(props) {
-  const [products, setProducts] = useState();
-
   const getJSON = (file, callback) => {
     let rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -19,14 +17,10 @@ function ProductLoader(props) {
   useEffect(() => {
     getJSON("./src/Products/products.json", function (text) {
       let data = JSON.parse(text);
-      setProducts(data);
+      // Lift the state up
+      props.onFileRetrieved(data);
     });
   }, []);
-
-  // Lift the state up
-  props.onFileRetrieved(products);
-
-  return;
 }
 
 export default ProductLoader;

@@ -1,0 +1,12 @@
+.search-results {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(200, 200, 200);
+  border-radius: 12px;
+}
+.search-results .product-card {
+  flex-direction: row;
+}
+.search-results .product__thumb img {
+  width: 80px;
+}

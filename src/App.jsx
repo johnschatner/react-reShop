@@ -5,19 +5,29 @@ import "./App.css";
 // Components
 import ProductLoader from "./Components/ProductLoader/ProductLoader";
 import Product from "./Components/Product/Product";
+import ProductGrid from "./Components/Product/ProductGrid";
+import Search from "./Components/Search/Search";
 
 function App() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   // Executes when file retrieves
   const handleFileCallback = (retrievedProducts) => {
     setProducts(retrievedProducts);
-    console.log(products);
   };
+
+  const cartHandler = (added) => {
+    setCart((cart) => [...cart, added]);
+  };
+
+  console.log(cart);
 
   return (
     <div className="App">
       <ProductLoader onFileRetrieved={handleFileCallback} />
+      <Search onAddedToCart={cartHandler} searchableProducts={products} />
+      <ProductGrid products={products} onAddedToCart={cartHandler} />
     </div>
   );
 }

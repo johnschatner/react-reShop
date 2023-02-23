@@ -9,8 +9,8 @@ function NewProduct() {
       id: 1,
       name: "Leather Desk Pad (Small / Black)",
       price: 110,
-      thumbnail: `./images/1-front`,
-      secondaryThumbnail: `./images/1-back`,
+      thumbnail: `images/1-front`,
+      secondaryThumbnail: `images/1-back`,
       headline: "Set Your Workspace Apart",
       description:
         "The leather desk pad brings visual structure and organization to your workspace. The premium, vegetable-tanned leather is buttery soft to the touch and dynamic, with distinguished character that will age and develop as you use it.",
@@ -19,8 +19,8 @@ function NewProduct() {
       id: 2,
       name: "Wool Felt Desk Pad (Small / Dark)",
       price: 50,
-      thumbnail: `./images/2-front`,
-      secondaryThumbnail: `./images/2-back`,
+      thumbnail: `images/2-front`,
+      secondaryThumbnail: `images/2-back`,
       headline: "Set Your Workspace Apart",
       description:
         "The desk pad brings visual structure and organization to your workspace, with premium 3mm thick virgin Merino Wool Felt. The natural material provides warmth and softness. It accents any desktop, from natural wood grain to white or laminate.",
@@ -29,8 +29,8 @@ function NewProduct() {
       id: 3,
       name: "Matte Desk Pad (Small / Black)",
       price: 50,
-      thumbnail: `./images/3-front`,
-      secondaryThumbnail: `./images/3-back`,
+      thumbnail: `images/3-front`,
+      secondaryThumbnail: `images/3-back`,
       headline: "Define Your Space",
       description:
         "The matte desk pad brings visual structure and organization to your workspace. The soft, smooth texture is perfect as a writing surface. It accents any desktop, from natural wood grain to white or laminate.",
@@ -39,7 +39,7 @@ function NewProduct() {
       id: 4,
       name: "Dark Wool Felt Mouse Pad (Large)",
       price: 45,
-      thumbnail: `./images/4-front`,
+      thumbnail: `images/4-front`,
       secondaryThumbnail: ``,
       headline: "Soft Touch",
       description:
@@ -49,8 +49,8 @@ function NewProduct() {
       id: 5,
       name: "Black Pen",
       price: 80,
-      thumbnail: `./images/5-front`,
-      secondaryThumbnail: `./images/5-back`,
+      thumbnail: `images/5-front`,
+      secondaryThumbnail: `images/5-back`,
       headline: "Mighty Smooth",
       description:
         "Precision machined from solid aluminum, the Grovemade Black Pen has a single piece body built to last a lifetime. A durable ceramic coating gives it a matte black finish.",
@@ -59,8 +59,8 @@ function NewProduct() {
       id: 6,
       name: "Brass Pen",
       price: 90,
-      thumbnail: `./images/6-front`,
-      secondaryThumbnail: `./images/6-back`,
+      thumbnail: `images/6-front`,
+      secondaryThumbnail: `images/6-back`,
       headline: "Mighty Smooth",
       description:
         "Precision machined from solid brass, the Grovemade Brass Pen has a single piece body built to last a lifetime. We highlight the metal by preserving the raw machining marks—it’s more difficult than bead blasting or tumbling, but it’s worth it to create a truly unique finish. The pen is hand polished and will develop a distinctive patina over time. Manufactured entirely in the Portland area to ensure the highest quality.",
@@ -69,8 +69,8 @@ function NewProduct() {
       id: 7,
       name: "Titanium Pen",
       price: 130,
-      thumbnail: `./images/7-front`,
-      secondaryThumbnail: `./images/7-back`,
+      thumbnail: `images/7-front`,
+      secondaryThumbnail: `images/7-back`,
       headline: "Super Metal",
       description:
         "Precision machined from solid titanium, the Grovemade Titanium Pen has a single piece body built to last a lifetime. Titanium is a magnificent, lustrous metal. It’s almost as light as aluminum, and harder than stainless steel, while being highly corrosion resistant. The weight of the Titanium pen just feels right in your hand. Each pen is stamped with the elemental symbol, Ti, to denote its value. Manufactured entirely in the Portland area to ensure the highest quality.",
@@ -79,7 +79,7 @@ function NewProduct() {
       id: 8,
       name: "Black Notepad",
       price: 80,
-      thumbnail: `./images/8-front`,
+      thumbnail: `images/8-front`,
       secondaryThumbnail: ``,
       headline: "Well Noted",
       description: `Our refillable notepad is there when you need to jot a note or doodle, with a narrow profile that fits into the spaces at your desk. A solid, ceramic-coated, machined aluminum base anchors your note taking. 70# paper with a subtle dot grid on both sides is reversible and clean—flip pages without leaving a torn stub.
@@ -92,7 +92,7 @@ function NewProduct() {
       id: 9,
       name: "Brass Notepad",
       price: 185,
-      thumbnail: `./images/9-front`,
+      thumbnail: `images/9-front`,
       secondaryThumbnail: ``,
       headline: "Well Noted",
       description: `Our refillable notepad is there when you need to jot a note or doodle, with a narrow profile that fits into the spaces at your desk. A solid, machined brass base anchors your note taking. 70# paper with a subtle dot grid on both sides is reversible and clean—flip pages without leaving a torn stub.
@@ -103,7 +103,7 @@ function NewProduct() {
       id: 10,
       name: "Silver Notepad",
       price: 80,
-      thumbnail: `./images/10-front`,
+      thumbnail: `images/10-front`,
       secondaryThumbnail: ``,
       headline: "Well Noted",
       description: `Our refillable notepad is there when you need to jot a note or doodle, with a narrow profile that fits into the spaces at your desk. A solid, ceramic-coated, machined aluminum base anchors your note taking. 70# paper with a subtle dot grid on both sides is reversible and clean—flip pages without leaving a torn stub.

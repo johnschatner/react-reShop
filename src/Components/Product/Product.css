@@ -1,0 +1,11 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+
+  background-color: rgb(245, 245, 245);
+  margin: 1rem;
+}
+
+.product__thumb img {
+  width: 100%;
+}

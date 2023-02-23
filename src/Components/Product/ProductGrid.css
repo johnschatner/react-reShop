@@ -1,0 +1,10 @@
+.product-grid__container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  max-width: 94rem;
+}
+@media (max-width: 740px) {
+  .product-grid__container {
+    grid-template-columns: auto auto;
+  }
+}
