@@ -26,20 +26,14 @@ function Search(props) {
   const liveSearch = (e) => {
     // Store search string
     const searchString = e.target.value.toLowerCase();
-
-    // Show nothing if search str is empty
-    if (searchString.length === 0) {
-      setFilteredProducts(() => []);
-    } else {
-      // Filter the products based on search string
-      let results = products.filter((product) =>
-        product.name.toLowerCase().includes(searchString)
-      );
-      // Limit arr size
-      results = [...results.slice(0, 3)];
-      // Store results in state
-      setFilteredProducts(() => results);
-    }
+    // Filter the products based on search string
+    let results = products.filter((product) =>
+      product.name.toLowerCase().includes(searchString)
+    );
+    // Limit arr size
+    results = [...results.slice(0, 3)];
+    // Store results in state
+    setFilteredProducts(() => results);
   };
 
   const addedToCartHandler = (added) => {
