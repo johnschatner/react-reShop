@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Search.css";
-import Product from "../Product/Product";
+import Product from "../../Product/Product";
 
 function Search(props) {
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -48,14 +48,18 @@ function Search(props) {
         onBlur={searchExitHandler}
         onSubmit={formHandler}
       >
-        <input
-          onFocus={searchActiveHandler}
-          onChange={liveSearch}
-          className="form-control"
-          type="text"
-          placeholder="What are you looking for?"
-        />
-        <button>Search</button>
+        <div className="search-bar__container">
+          <button className="icon-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+          <input
+            onFocus={searchActiveHandler}
+            onChange={liveSearch}
+            className="form-control"
+            type="text"
+            placeholder="What are you looking for?"
+          />
+        </div>
         <div className="search-results">
           {isSearching &&
             filteredProducts.map((p) => {

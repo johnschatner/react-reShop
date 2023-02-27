@@ -2,8 +2,14 @@
   width: fit-content;
 }
 
+.search-bar__container {
+  display: flex;
+}
+
 .search-results {
   position: absolute;
+  z-index: 200;
+
   display: flex;
   flex-direction: column;
   background-color: rgba(131, 131, 131, 0.46);

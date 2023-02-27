@@ -14,11 +14,21 @@ function ProductLoader(props) {
     rawFile.send(null);
   };
 
+  // Adds properties (i.e quantity) to every product
+  const initializeProducts = (products) => {
+    const initialized = products.map((product) => ({
+      ...product,
+      quantity: 0,
+      // add more props here if needed
+    }));
+    return initialized;
+  };
+
   useEffect(() => {
     getJSON("./src/Products/products.json", function (text) {
-      let data = JSON.parse(text);
+      let products = JSON.parse(text);
       // Lift the state up
-      props.onFileRetrieved(data);
+      props.onFileRetrieved(initializeProducts(products));
     });
   }, []);
 }

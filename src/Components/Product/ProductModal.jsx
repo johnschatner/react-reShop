@@ -33,7 +33,11 @@ function ProductModal(props) {
             tabIndex={"1"}
           >
             <div onClick={handleClose} className="modalClose">
-              <ion-icon name="close-outline"></ion-icon>
+              <ion-icon
+                name="close-outline"
+                size="large"
+                color="black"
+              ></ion-icon>
             </div>
             <div className="product-modal__content">
               <div>
