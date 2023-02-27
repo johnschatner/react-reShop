@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Cart.css";
+import CartItem from "./CartItem";
 
 function Cart(props) {
   const [open, setOpen] = useState(false);
@@ -17,8 +18,10 @@ function Cart(props) {
     props.stateChanger(false); // Update header (parent)
   };
 
-  // Iterate over each product and assign a Product component to it
-  let cart = [];
+  // Iterate over each product and assign to a CartItem component
+  let cartEls = props.cart.products.map((item) => {
+    return <CartItem key={item.id} product={item} />;
+  });
 
   return (
     <div className="cart-container">
@@ -29,7 +32,7 @@ function Cart(props) {
         onMouseLeave={handleClose}
         className={`cart-window ${open ? "open" : ""}`}
       >
-        {cart}
+        {cartEls}
       </div>
       <div
         onClick={handleClose}

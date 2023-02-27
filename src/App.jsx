@@ -9,7 +9,6 @@ import Header from "./Components/Header/Header";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [cartProducts, setCartProducts] = useState([]);
   const [cart, setCart] = useState({ products: [], quantity: 0, total: 0 });
 
   // Executes when file retrieves
@@ -44,9 +43,6 @@ function App() {
       cart = [...cart, productToBeAdded];
     }
 
-    console.log(productToBeAdded);
-    console.log(cart);
-
     return cart;
   };
 
@@ -63,9 +59,6 @@ function App() {
         total: getCartTotal([...prevCart.products, added]),
       };
     });
-
-    // Old way
-    setCartProducts((cartProducts) => [...cartProducts, added]);
   };
 
   // log the cart
@@ -74,11 +67,7 @@ function App() {
   return (
     <div className="App">
       <ProductLoader onFileRetrieved={handleFileCallback} />
-      <Header
-        onAddedToCart={cartHandler}
-        cart={cartProducts}
-        products={products}
-      />
+      <Header onAddedToCart={cartHandler} cart={cart} products={products} />
       <ProductGrid products={products} onAddedToCart={cartHandler} />
     </div>
   );
