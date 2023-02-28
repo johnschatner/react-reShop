@@ -13,7 +13,7 @@
 import { useEffect } from "react";
 
 // Components
-import NewProduct from "../NewProduct/NewProduct";
+import NewProduct from "../../NewProduct/NewProduct";
 
 function ProductLoader(props) {
   const getJSON = (file, callback) => {
