@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import ProductLoader from "../Components/ProductLoader/ProductLoader";
 
 export const ShopContext = createContext(null);
@@ -37,6 +37,8 @@ export const ShopContextProvider = (props) => {
   };
 
   const contextValue = { cartItems, addToCart, removeFromCart };
+
+  console.log(cartItems);
 
   return (
     <ShopContext.Provider value={contextValue}>

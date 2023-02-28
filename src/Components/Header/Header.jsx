@@ -10,27 +10,27 @@ function Header(props) {
     props.onAddedToCart(added);
   };
 
-  // Lifting state
-  const incrementHandler = (p) => {
-    props.increment(p);
-  };
-  const decrementHandler = (p) => {
-    props.decrement(p);
-  };
+  // // Lifting state
+  // const incrementHandler = (p) => {
+  //   props.increment(p);
+  // };
+  // const decrementHandler = (p) => {
+  //   props.decrement(p);
+  // };
 
   return (
     <header className={`header-content ${headerBackground ? "open" : ""}`}>
       <div className="header-content__left">
         <Search
-          onAddedToCart={cartHandler}
+          // onAddedToCart={cartHandler}
           searchableProducts={props.products}
         />
       </div>
       <div className="header-content__right">
         <Cart
-          cart={props.cart}
-          increment={incrementHandler}
-          decrement={decrementHandler}
+          // cart={props.cart}
+          // increment={incrementHandler}
+          // decrement={decrementHandler}
           stateChanger={setHeaderBackground}
         />
       </div>

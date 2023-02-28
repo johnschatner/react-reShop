@@ -18,25 +18,27 @@ function Cart(props) {
     props.stateChanger(false); // Update header (parent)
   };
 
-  // Lifting state
-  const incrementHandler = (p) => {
-    props.increment(p);
-  };
-  const decrementHandler = (p) => {
-    props.decrement(p);
-  };
+  // // Lifting state
+  // const incrementHandler = (p) => {
+  //   props.increment(p);
+  // };
+  // const decrementHandler = (p) => {
+  //   props.decrement(p);
+  // };
+
+  // Change props.products.map to something that has products
 
   // Iterate over each product and assign to a CartItem component
-  let cartEls = props.cart.products.map((item) => {
-    return (
-      <CartItem
-        key={item.id}
-        product={item}
-        increment={incrementHandler}
-        decrement={decrementHandler}
-      />
-    );
-  });
+  // let cartEls = props.products.map((item) => {
+  //   return (
+  //     <CartItem
+  //       key={item.id}
+  //       product={item}
+  //       // increment={incrementHandler}
+  //       // decrement={decrementHandler}
+  //     />
+  //   );
+  // });
 
   return (
     <div className="cart-container">
@@ -47,7 +49,7 @@ function Cart(props) {
         onMouseLeave={handleClose}
         className={`cart-window ${open ? "open" : ""}`}
       >
-        {cartEls}
+        {/* {cartEls} */}
       </div>
       <div
         onClick={handleClose}

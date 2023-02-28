@@ -5,8 +5,13 @@ import ProductModal from "./ProductModal";
 import { ShopContext } from "../../context/ReShopContext";
 
 function Product(props) {
+  // ShopContext
   const { cartItems, addToCart } = useContext(ShopContext);
 
+  // Object (Product) destructuring
+  const { id, name, price, thumbnail } = props.product;
+
+  // Modal state
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -15,38 +20,28 @@ function Product(props) {
     setOpen(false);
   };
 
-  // One less layer of abstraction
-  const p = props.product;
-
-  const addToCartHandler = () => {
-    console.log(p.id);
-    addToCart(p.id);
-    console.log("Cart:", cartItems);
-    // props.onAddedToCart(p);
-  };
-
   return (
     <div className="product-card">
       <div className="product__image">
         <div className="product__thumb">
           <a onMouseDown={(e) => e.preventDefault()} onClick={handleOpen}>
-            <img src={`/src/products/${p.thumbnail}.avif`} alt={p.name} />
+            <img src={`/src/products/${thumbnail}.avif`} alt={name} />
           </a>
         </div>
       </div>
       <div className="product__content">
         <div className="product__name">
-          <span>{p.name}</span>
+          <span>{name}</span>
         </div>
         <div className="product__price">
           <span className="product__currency">$</span>
-          {p.price}
+          {price}
         </div>
         <div className="product__add-to-cart">
           {/* onMouseDown.. prevents onBlur from firing in Search.jsx */}
           <button
             onMouseDown={(e) => e.preventDefault()}
-            onClick={addToCartHandler}
+            onClick={() => addToCart(id)}
           >
             Add to cart
           </button>
@@ -58,7 +53,7 @@ function Product(props) {
           <ProductModal
             open={open}
             onClose={handleClose}
-            product={p}
+            product={props.product}
           ></ProductModal>
         </div>
         <div className="product__description">{/* p.description */}</div>

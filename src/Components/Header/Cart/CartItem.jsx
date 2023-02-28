@@ -3,13 +3,13 @@ import "./CartItem.css";
 function CartItem(props) {
   const p = props.product;
 
-  // Lifting state
-  const incrementHandler = () => {
-    props.increment(p);
-  };
-  const decrementHandler = () => {
-    props.decrement(p);
-  };
+  // // Lifting state
+  // const incrementHandler = () => {
+  //   props.increment(p);
+  // };
+  // const decrementHandler = () => {
+  //   props.decrement(p);
+  // };
 
   return (
     <div>
@@ -17,8 +17,8 @@ function CartItem(props) {
       <div>Price: {p.price}</div>
       <div>
         Quantity: {p.quantity}
-        <button onClick={incrementHandler}>+</button>
-        <button onClick={decrementHandler}>-</button>
+        <button onClick={console.log("+1")}>+</button>
+        <button onClick={console.log("-1")}>-</button>
       </div>
     </div>
   );
