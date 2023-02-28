@@ -2,24 +2,45 @@
 }
 
 .cart-window {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
   position: absolute;
-  top: 44px;
+  visibility: hidden;
+  top: 46px;
   left: 0;
   z-index: 100;
   width: 100vw;
 
-  height: 0;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+
+  transform: scaleY(0);
+  transform-origin: top;
+  height: auto;
+  min-height: 40vh;
   opacity: 0;
   scale: 1;
-  transition: 800ms cubic-bezier(0.15, 0.8, 0, 1);
-
+  transition: 800ms cubic-bezier(0.15, 0.8, 0, 1),
+    color 200ms cubic-bezier(0.15, 0.8, 0, 1),
+    opacity 500ms cubic-bezier(0.15, 0.8, 0, 1);
   background-color: rgba(22, 22, 23, 1);
-  color: white;
+  color: transparent;
 }
 .cart-window.open {
+  visibility: visible;
+  padding: 2rem 2rem 5rem 2rem;
   opacity: 1;
   scale: 1;
-  height: 40vh;
+  color: white;
+  transform: scaleY(1);
+}
+.cart-window * {
+  opacity: 0;
+  transition: 400ms opacity cubic-bezier(0.15, 0.8, 0, 1);
+}
+.cart-window.open * {
+  opacity: 1;
 }
 
 .cart-overlay {
@@ -40,4 +61,14 @@
 .cart-overlay.open {
   opacity: 1;
   scale: 1;
+}
+
+.cart-total {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  bottom: 1.5rem;
+
+  text-align: center;
+  font-size: 1.25rem;
 }

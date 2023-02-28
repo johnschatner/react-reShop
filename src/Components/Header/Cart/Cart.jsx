@@ -6,8 +6,11 @@ import CartItem from "./CartItem";
 import { ShopContext } from "../../../context/ReShopContext";
 
 function Cart(props) {
-  const { PRODUCTS, cartItems } = useContext(ShopContext);
+  // Context
+  const { PRODUCTS, cartItems, getCartSubtotal, clearCart } =
+    useContext(ShopContext);
 
+  // Transition window
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     if (open) {
@@ -24,11 +27,14 @@ function Cart(props) {
   };
 
   // Iterate over each product and assign to a CartItem component
-  let cartEls = PRODUCTS.map((item) => {
-    if (cartItems[item.id] !== 0) {
-      return <CartItem key={item.id} product={item} />;
+  let cartEls = PRODUCTS.map((p) => {
+    if (cartItems[p.id] !== 0) {
+      return <CartItem key={p.id} product={p} />;
     }
   });
+
+  // Get the total cart amount
+  const subtotal = getCartSubtotal();
 
   return (
     <div className="cart-container">
@@ -40,6 +46,10 @@ function Cart(props) {
         className={`cart-window ${open ? "open" : ""}`}
       >
         {cartEls}
+        <div className="cart-total">
+          Subtotal: ${subtotal}
+          <button onClick={() => clearCart()}>Clear cart</button>
+        </div>
       </div>
       <div
         onClick={handleClose}
