@@ -3,14 +3,6 @@ import "./CartItem.css";
 function CartItem(props) {
   const p = props.product;
 
-  // // Lifting state
-  // const incrementHandler = () => {
-  //   props.increment(p);
-  // };
-  // const decrementHandler = () => {
-  //   props.decrement(p);
-  // };
-
   return (
     <div>
       <div>Name: {p.name}</div>

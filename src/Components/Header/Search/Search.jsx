@@ -36,10 +36,6 @@ function Search(props) {
     setFilteredProducts(() => results);
   };
 
-  const addedToCartHandler = (added) => {
-    props.onAddedToCart(added);
-  };
-
   return (
     <div>
       <form
@@ -63,13 +59,7 @@ function Search(props) {
         <div className="search-results">
           {isSearching &&
             filteredProducts.map((p) => {
-              return (
-                <Product
-                  key={p.id}
-                  product={p}
-                  onAddedToCart={addedToCartHandler}
-                />
-              );
+              return <Product key={p.id} product={p} />;
             })}
         </div>
       </form>
