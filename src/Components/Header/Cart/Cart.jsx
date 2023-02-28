@@ -18,9 +18,24 @@ function Cart(props) {
     props.stateChanger(false); // Update header (parent)
   };
 
+  // Lifting state
+  const incrementHandler = (p) => {
+    props.increment(p);
+  };
+  const decrementHandler = (p) => {
+    props.decrement(p);
+  };
+
   // Iterate over each product and assign to a CartItem component
   let cartEls = props.cart.products.map((item) => {
-    return <CartItem key={item.id} product={item} />;
+    return (
+      <CartItem
+        key={item.id}
+        product={item}
+        increment={incrementHandler}
+        decrement={decrementHandler}
+      />
+    );
   });
 
   return (

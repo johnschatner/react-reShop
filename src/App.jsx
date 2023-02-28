@@ -17,29 +17,46 @@ function App() {
   };
 
   // Calculate the cart quantity
-  const getCartQuantity = (arr) => {
-    return arr.length;
+  const getCartQuantity = () => {
+    let quantity = 0;
+    console.log(cart);
+    return quantity;
   };
 
   // Calculate the cart total
-  const getCartTotal = (arr) => {
+  const getCartTotal = () => {
     let total = 0;
-    arr.forEach((item) => {
+    cart.products.forEach((item) => {
       total += item.price;
     });
     return total;
   };
 
-  // Add, edit and remove products from cart
-  const cartProductsHandler = (p) => {
+  useEffect(() => {
+    getCartQuantity();
+    getCartTotal();
+  });
+
+  // Adds a product to the cart
+  const addProductHandler = (p) => {
     let cart = Array.from(p.arr);
     const productToBeAdded = p.productToBeAdded;
+
+    console.log("Current Cart", cart);
+    console.log("Product to be added", productToBeAdded);
+
     const indexOfProduct = p.arr.findIndex(
       (item) => item.name === productToBeAdded.name
     );
     if (indexOfProduct > -1) {
-      console.log(cart[indexOfProduct]);
+      console.log("Product is in cart already, changing quantity...");
+      console.log(indexOfProduct);
+
+      // Change quantity
+      cart[indexOfProduct].quantity += 1;
     } else {
+      console.log("Product isn't in cart already, adding...");
+      productToBeAdded.quantity = 1; // We have one!
       cart = [...cart, productToBeAdded];
     }
 
@@ -51,12 +68,10 @@ function App() {
     setCart((prevCart) => {
       return {
         ...prevCart,
-        products: cartProductsHandler({
-          arr: [...prevCart.products, added],
+        products: addProductHandler({
+          arr: [...prevCart.products],
           productToBeAdded: added,
         }),
-        quantity: getCartQuantity([...prevCart.products, added]),
-        total: getCartTotal([...prevCart.products, added]),
       };
     });
   };
@@ -64,10 +79,40 @@ function App() {
   // log the cart
   console.log("Cart", cart);
 
+  //  Lifted cart window logic state
+  const incrementHandler = (p) => {
+    setCart((prevCart) => {
+      return {
+        ...prevCart,
+        products: addProductHandler({
+          arr: [...prevCart.products],
+          productToBeAdded: p,
+        }),
+      };
+    });
+  };
+  const decrementHandler = (p) => {
+    setCart((prevCart) => {
+      return {
+        ...prevCart,
+        products: addProductHandler({
+          arr: [...prevCart.products],
+          productToBeAdded: p,
+        }),
+      };
+    });
+  };
+
   return (
     <div className="App">
       <ProductLoader onFileRetrieved={handleFileCallback} />
-      <Header onAddedToCart={cartHandler} cart={cart} products={products} />
+      <Header
+        onAddedToCart={cartHandler}
+        cart={cart}
+        increment={incrementHandler}
+        decrement={decrementHandler}
+        products={products}
+      />
       <ProductGrid products={products} onAddedToCart={cartHandler} />
     </div>
   );
