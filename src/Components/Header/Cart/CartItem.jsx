@@ -1,16 +1,33 @@
+import { useContext } from "react";
 import "./CartItem.css";
 
+// Context
+import { ShopContext } from "../../../context/ReShopContext";
+
 function CartItem(props) {
-  const p = props.product;
+  const { cartItems, addToCart, removeFromCart } = useContext(ShopContext);
+  const { id, name, price } = props.product;
 
   return (
     <div>
-      <div>Name: {p.name}</div>
-      <div>Price: {p.price}</div>
+      <div>Name: {name}</div>
+      <div>Price: {price}</div>
       <div>
-        Quantity: {p.quantity}
-        <button onClick={console.log("+1")}>+</button>
-        <button onClick={console.log("-1")}>-</button>
+        Quantity: {cartItems[id]}
+        <button
+          onClick={() => {
+            addToCart(id);
+          }}
+        >
+          +
+        </button>
+        <button
+          onClick={() => {
+            removeFromCart(id);
+          }}
+        >
+          -
+        </button>
       </div>
     </div>
   );

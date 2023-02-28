@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./Cart.css";
 import CartItem from "./CartItem";
 
+// Context
+import { ShopContext } from "../../../context/ReShopContext";
+
 function Cart(props) {
+  const { PRODUCTS, cartItems } = useContext(ShopContext);
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     if (open) {
@@ -18,17 +23,12 @@ function Cart(props) {
     props.stateChanger(false); // Update header (parent)
   };
 
-  // Change props.products.map to something that has products
-
   // Iterate over each product and assign to a CartItem component
-  // let cartEls = props.products.map((item) => {
-  //   return (
-  //     <CartItem
-  //       key={item.id}
-  //       product={item}
-  //     />
-  //   );
-  // });
+  let cartEls = PRODUCTS.map((item) => {
+    if (cartItems[item.id] !== 0) {
+      return <CartItem key={item.id} product={item} />;
+    }
+  });
 
   return (
     <div className="cart-container">
@@ -39,7 +39,7 @@ function Cart(props) {
         onMouseLeave={handleClose}
         className={`cart-window ${open ? "open" : ""}`}
       >
-        {/* {cartEls} */}
+        {cartEls}
       </div>
       <div
         onClick={handleClose}
