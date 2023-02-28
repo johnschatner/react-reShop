@@ -27,9 +27,9 @@ function ProductLoader(props) {
 
   useEffect(() => {
     getJSON("./src/Products/products.json", function (text) {
-      let products = JSON.parse(text);
+      let parsedProducts = JSON.parse(text);
       // Lift the state up
-      props.onFileRetrieved(initializeProducts(products));
+      props.onFileRetrieved(initializeProducts(parsedProducts));
     });
   }, []);
 }

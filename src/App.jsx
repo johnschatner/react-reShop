@@ -6,20 +6,18 @@ import "./App.css";
 import { ShopContextProvider } from "./context/ReShopContext";
 
 // Components
-import ProductLoader from "./Components/ProductLoader/ProductLoader";
 import ProductGrid from "./Components/Product/ProductGrid";
 import Header from "./Components/Header/Header";
 
 function App() {
-  const [products, setProducts] = useState([]);
-
-  // Executes when file retrieves
-  const handleFileCallback = (retrievedProducts) => {
-    setProducts(retrievedProducts);
-  };
-
   // Previous attempt (scrapped 2023-02-28)
   //
+  //  const [products, setProducts] = useState([]);
+  //
+  // // Executes when file retrieves
+  // const handleFileCallback = (retrievedProducts) => {
+  //   setProducts(retrievedProducts);
+  // };
   //
   // const [cart, setCart] = useState({ products: [], quantity: 0, total: 0 });
   //
@@ -108,17 +106,16 @@ function App() {
   return (
     <div className="App">
       <ShopContextProvider>
-        <ProductLoader onFileRetrieved={handleFileCallback} />
         <Header
-          // onAddedToCart={cartHandler}
-          // cart={cart}
-          // increment={incrementHandler}
-          // decrement={decrementHandler}
-          products={products}
+        // onAddedToCart={cartHandler}
+        // cart={cart}
+        // increment={incrementHandler}
+        // decrement={decrementHandler}
+        // products={products}
         />
         <ProductGrid
-          products={products}
-          // onAddedToCart={cartHandler}
+        // products={products}
+        // onAddedToCart={cartHandler}
         />
       </ShopContextProvider>
     </div>

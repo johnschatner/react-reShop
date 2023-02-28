@@ -2,11 +2,12 @@ import { useContext, useState } from "react";
 import "./Product.css";
 import ProductModal from "./ProductModal";
 
+// Context
 import { ShopContext } from "../../context/ReShopContext";
 
 function Product(props) {
   // ShopContext
-  const { cartItems, addToCart } = useContext(ShopContext);
+  const { addToCart } = useContext(ShopContext);
 
   // Object (Product) destructuring
   const { id, name, price, thumbnail } = props.product;

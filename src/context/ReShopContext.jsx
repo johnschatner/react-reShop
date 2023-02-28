@@ -1,32 +1,19 @@
-import { createContext, useEffect, useState } from "react";
-import ProductLoader from "../Components/ProductLoader/ProductLoader";
+import { createContext, useState } from "react";
+import * as data from "../Products/products.json";
+const PRODUCTS = data.default;
 
 export const ShopContext = createContext(null);
 
-const PRODUCTS = {
-  1: 0,
-  2: 0,
-  3: 0,
-  4: 0,
-  5: 0,
-  6: 0,
-  7: 0,
-  8: 0,
-  9: 0,
-  10: 0,
-};
-
-const getDefaultCart = () => {
-  let cart = {};
-  for (let i = 0; i < PRODUCTS.length + 1; i++) {
-    console.log(i);
-    cart[i] = 0;
-  }
-  return cart;
-};
-
 export const ShopContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState(PRODUCTS);
+  const getDefaultCart = () => {
+    let cart = {};
+    for (let i = 1; i < PRODUCTS.length + 1; i++) {
+      cart[i] = 0;
+    }
+    return cart;
+  };
+
+  const [cartItems, setCartItems] = useState(getDefaultCart());
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -36,9 +23,10 @@ export const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 
-  const contextValue = { cartItems, addToCart, removeFromCart };
+  const contextValue = { PRODUCTS, cartItems, addToCart, removeFromCart };
 
-  console.log(cartItems);
+  console.log("Products:", PRODUCTS);
+  console.log("Cart:", cartItems);
 
   return (
     <ShopContext.Provider value={contextValue}>

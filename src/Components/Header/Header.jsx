@@ -1,14 +1,18 @@
 import "./Header.css";
 import Search from "./Search/Search";
 import Cart from "./Cart/Cart";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-function Header(props) {
+// Context
+import { ShopContext } from "../../context/ReShopContext";
+
+function Header() {
   const [headerBackground, setHeaderBackground] = useState();
+  const { PRODUCTS } = useContext(ShopContext);
 
-  const cartHandler = (added) => {
-    props.onAddedToCart(added);
-  };
+  // const cartHandler = (added) => {
+  //   props.onAddedToCart(added);
+  // };
 
   // // Lifting state
   // const incrementHandler = (p) => {
@@ -23,7 +27,7 @@ function Header(props) {
       <div className="header-content__left">
         <Search
           // onAddedToCart={cartHandler}
-          searchableProducts={props.products}
+          searchableProducts={PRODUCTS}
         />
       </div>
       <div className="header-content__right">
