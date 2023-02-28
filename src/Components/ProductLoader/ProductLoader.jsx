@@ -1,7 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+
+// Context
+import { ShopContext } from "../../context/ReShopContext";
+
+// Components
 import NewProduct from "../NewProduct/NewProduct";
 
 function ProductLoader(props) {
+  const { cartItems } = useContext(ShopContext);
+
   const getJSON = (file, callback) => {
     let rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -27,6 +34,7 @@ function ProductLoader(props) {
   useEffect(() => {
     getJSON("./src/Products/products.json", function (text) {
       let products = JSON.parse(text);
+      console.log(cartItems);
       // Lift the state up
       props.onFileRetrieved(initializeProducts(products));
     });

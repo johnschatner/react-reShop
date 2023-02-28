@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./Product.css";
 import ProductModal from "./ProductModal";
 
+import { ShopContext } from "../../context/ReShopContext";
+
 function Product(props) {
+  const { cartItems, addToCart } = useContext(ShopContext);
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -15,7 +19,10 @@ function Product(props) {
   const p = props.product;
 
   const addToCartHandler = () => {
-    props.onAddedToCart(p);
+    console.log(p.id);
+    addToCart(p.id);
+    console.log("Cart:", cartItems);
+    // props.onAddedToCart(p);
   };
 
   return (

@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
+// Context
+import { ShopContextProvider } from "./context/ReShopContext";
+
 // Components
 import ProductLoader from "./Components/ProductLoader/ProductLoader";
 import ProductGrid from "./Components/Product/ProductGrid";
@@ -31,11 +34,6 @@ function App() {
     });
     return total;
   };
-
-  useEffect(() => {
-    getCartQuantity();
-    getCartTotal();
-  });
 
   // Adds a product to the cart
   const addProductHandler = (p) => {
@@ -105,15 +103,17 @@ function App() {
 
   return (
     <div className="App">
-      <ProductLoader onFileRetrieved={handleFileCallback} />
-      <Header
-        onAddedToCart={cartHandler}
-        cart={cart}
-        increment={incrementHandler}
-        decrement={decrementHandler}
-        products={products}
-      />
-      <ProductGrid products={products} onAddedToCart={cartHandler} />
+      <ShopContextProvider>
+        <ProductLoader onFileRetrieved={handleFileCallback} />
+        <Header
+          onAddedToCart={cartHandler}
+          cart={cart}
+          increment={incrementHandler}
+          decrement={decrementHandler}
+          products={products}
+        />
+        <ProductGrid products={products} onAddedToCart={cartHandler} />
+      </ShopContextProvider>
     </div>
   );
 }
