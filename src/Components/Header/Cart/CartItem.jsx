@@ -23,7 +23,6 @@ function CartItem(props) {
         <div className="cart-item__name">{name}</div>
       </div>
       <div className="cart-item__right">
-        <div className="cart-item__price">${itemTotal}</div>
         <div className="cart-item__quantity-container">
           <button
             className="icon-btn"
@@ -33,11 +32,7 @@ function CartItem(props) {
           >
             <ion-icon name="add-outline"></ion-icon>
           </button>
-          <input
-            className="cart-item__quantity"
-            type="number"
-            value={quantity}
-          />
+          <span className="cart-item__quantity">{quantity}</span>
           <button
             className="icon-btn"
             onClick={() => {
@@ -47,6 +42,7 @@ function CartItem(props) {
             <ion-icon name="remove-outline"></ion-icon>
           </button>
         </div>
+        <div className="cart-item__price">${itemTotal}</div>
       </div>
     </div>
   );

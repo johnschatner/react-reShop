@@ -5,6 +5,10 @@ const PRODUCTS = data.default;
 export const ShopContext = createContext(null);
 
 export const ShopContextProvider = (props) => {
+  const defaultMessages = {
+    emptyCart: "Your cart is empty",
+  };
+
   const getDefaultCart = () => {
     let cart = {};
     for (let i = 1; i < PRODUCTS.length + 1; i++) {
@@ -45,6 +49,7 @@ export const ShopContextProvider = (props) => {
     removeFromCart,
     getCartSubtotal,
     clearCart,
+    defaultMessages,
   };
 
   // console.log("Products:", PRODUCTS);

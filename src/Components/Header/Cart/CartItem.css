@@ -5,14 +5,29 @@
 .cart-item > div {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
+
+/*Thumbnail*/
 .cart-item__thumb {
   display: flex;
 }
 .cart-item__thumb * {
-  width: 44px;
-  height: 44px;
+  width: 54px;
+  height: 54px;
+}
+
+/*SVG*/
+.cart-item ion-icon {
+  color: white;
+  opacity: 1;
+  font-size: 0.8rem;
+}
+
+/*Price*/
+.cart-item__price {
+  min-width: 60px;
+  text-align: right;
 }
 
 /*Quantity*/
@@ -21,19 +36,8 @@
   align-items: center;
   gap: 0.25rem;
 }
-
-/* Chrome, Safari, Edge, Opera */
-input.cart-item__quantity::-webkit-outer-spin-button,
-input.cart-item__quantity::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* Firefox */
-input[type="number"].cart-item__quantity {
-  -moz-appearance: textfield;
-}
 .cart-item__quantity {
-  width: 24px;
+  width: 34px;
   background-color: transparent;
   color: white;
   border: none;

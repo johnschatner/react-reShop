@@ -7,7 +7,7 @@ import { ShopContext } from "../../../context/ReShopContext";
 
 function Cart(props) {
   // Context
-  const { PRODUCTS, cartItems, getCartSubtotal, clearCart } =
+  const { PRODUCTS, cartItems, getCartSubtotal, clearCart, defaultMessages } =
     useContext(ShopContext);
 
   // Transition window
@@ -36,6 +36,9 @@ function Cart(props) {
   // Get the total cart amount
   const subtotal = getCartSubtotal();
 
+  // Check if products are in cart
+  const productsInCart = Object.values(cartItems).includes(1);
+
   return (
     <div className="cart-container">
       <button onClick={handleOpen} className="icon-btn">
@@ -45,11 +48,17 @@ function Cart(props) {
         onMouseLeave={handleClose}
         className={`cart-window ${open ? "open" : ""}`}
       >
-        {cartEls}
-        <div className="cart-total">
-          Subtotal: ${subtotal}
-          <button onClick={() => clearCart()}>Clear cart</button>
-        </div>
+        {productsInCart ? (
+          <div>
+            {cartEls}
+            <div className="cart-total">
+              Subtotal: ${subtotal}
+              <button onClick={() => clearCart()}>Clear cart</button>
+            </div>
+          </div>
+        ) : (
+          <span className="cart-empty">{defaultMessages.emptyCart}</span>
+        )}
       </div>
       <div
         onClick={handleClose}
