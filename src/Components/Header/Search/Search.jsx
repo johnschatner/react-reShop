@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Search.css";
 import Product from "../../Product/Product";
+import { Link } from "react-router-dom";
 
 function Search(props) {
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -37,7 +38,12 @@ function Search(props) {
   };
 
   return (
-    <div>
+    <div className="flex">
+      <div className="logo">
+        <Link to="/" className="icon-btn">
+          <ion-icon name="logo-apple"></ion-icon>
+        </Link>
+      </div>
       <form
         className="search-form"
         tabIndex={"0"}
@@ -45,9 +51,9 @@ function Search(props) {
         onSubmit={formHandler}
       >
         <div className="search-bar__container">
-          <button className="icon-btn">
+          <Link to="/search" className="icon-btn">
             <ion-icon name="search-outline"></ion-icon>
-          </button>
+          </Link>
           <input
             onFocus={searchActiveHandler}
             onChange={liveSearch}

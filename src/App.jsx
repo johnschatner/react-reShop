@@ -1,20 +1,27 @@
-import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Context
 import { ShopContextProvider } from "./context/ReShopContext";
 
 // Components
-import ProductGrid from "./Components/Product/ProductGrid";
 import Header from "./Components/Header/Header";
+
+// Pages
+import HomePage from "./Pages/HomePage/HomePage";
+import SearchPage from "./Pages/SearchPage/SearchPage";
 
 function App() {
   return (
     <div className="App">
       <ShopContextProvider>
-        <Header />
-        <ProductGrid />
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/search" element={<SearchPage />} />
+          </Routes>
+        </Router>
       </ShopContextProvider>
     </div>
   );

@@ -17,3 +17,7 @@
 .header-content.open {
   background-color: var(--globalnav-background);
 }
+
+.header-content__left .flex {
+  gap: 2rem;
+}

@@ -5,6 +5,7 @@
 .search-bar__container {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .search-results {
