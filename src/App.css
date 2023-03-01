@@ -1,6 +1,11 @@
 :root {
+  --globalnav-background-light: rgba(255, 255, 255, 1);
+  --globalnav-background-light-opaque: rgba(255, 255, 255, 0.8);
+
   --globalnav-background: rgba(22, 22, 23, 1);
   --globalnav-background-opaque: rgba(22, 22, 23, 0.8);
+
+  --globaltransition-header: cubic-bezier(0.15, 0.8, 0, 1);
 }
 
 .flex {

@@ -12,10 +12,18 @@
   backdrop-filter: saturate(180%) blur(10px);
   background-color: var(--globalnav-background-opaque);
 
+  transition: 300ms var(--globaltransition-header);
+
   gap: 2rem;
 }
 .header-content.open {
-  background-color: var(--globalnav-background);
+  background-color: var(--globalnav-background-light);
+}
+.header-content.open ion-icon {
+  color: rgba(0, 0, 0, 0.8);
+}
+.header-content.open input[type="text"].form-control {
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .header-content__left .flex {
