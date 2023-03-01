@@ -37,7 +37,7 @@ function Cart(props) {
   const subtotal = getCartSubtotal();
 
   // Check if products are in cart
-  const productsInCart = Object.values(cartItems).includes(1);
+  const productsInCart = Object.values(cartItems).some((num) => num > 0);
 
   return (
     <div className="cart-container">
