@@ -43,6 +43,16 @@ function CartItem(props) {
           </button>
         </div>
         <div className="cart-item__price">${itemTotal}</div>
+        <div className="cart-item__remove">
+          <button
+            className="icon-btn"
+            onClick={() => {
+              removeFromCart(id, quantity);
+            }}
+          >
+            <ion-icon name="close-circle-outline" size="small"></ion-icon>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -37,6 +37,7 @@ ion-icon:hover {
 }
 
 .icon-btn {
+  position: relative;
   display: flex;
   cursor: pointer;
   margin: 0;
