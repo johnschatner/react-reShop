@@ -4,9 +4,9 @@ import "./ProductGrid.css";
 import { ShopContext } from "../../context/ReShopContext";
 import { useContext } from "react";
 
-function ProductGrid() {
+function ProductGrid(props) {
   // Load global products
-  const { PRODUCTS } = useContext(ShopContext);
+  const PRODUCTS = props.products;
 
   // Iterate over each product and assign a Product component to it
   const products = PRODUCTS.map((p) => {
