@@ -53,8 +53,6 @@ function SearchPage() {
       animate={{ opacity: 1, scale: 1 }}
     >
       <div>
-        <br />
-        <br />
         <div>{searchEls}</div>
       </div>
     </motion.div>

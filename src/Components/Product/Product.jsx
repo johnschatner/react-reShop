@@ -35,30 +35,41 @@ function Product(props) {
         <div className="product__name">
           <span>{name}</span>
         </div>
-        <div className="product__price">
-          <span className="product__currency">$</span>
-          {price}
+        <div className="product-content__box">
+          <div className="product-content__box-left">
+            <div className="product__price">
+              <span className="product__currency">$</span>
+              {price}
+            </div>
+          </div>
+          <div className="product-content__box-right">
+            <div className="product__add-to-cart">
+              {/* onMouseDown.. prevents onBlur from firing in Search.jsx */}
+              <button
+                className="icon-btn"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => addToCart(id)}
+              >
+                <ion-icon name="bag-add-outline"></ion-icon>
+              </button>
+            </div>
+            <div className="product__view-more">
+              <a
+                className="icon-btn"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={handleOpen}
+              >
+                <ion-icon name="book-outline"></ion-icon>
+              </a>
+              <ProductModal
+                open={open}
+                onClose={handleClose}
+                product={props.product}
+              ></ProductModal>
+            </div>
+          </div>
+          {/* <div className="product__description">{p.description}</div> */}
         </div>
-        <div className="product__add-to-cart">
-          {/* onMouseDown.. prevents onBlur from firing in Search.jsx */}
-          <button
-            onMouseDown={(e) => e.preventDefault()}
-            onClick={() => addToCart(id)}
-          >
-            Add to cart
-          </button>
-        </div>
-        <div className="product__view-more">
-          <a onMouseDown={(e) => e.preventDefault()} onClick={handleOpen}>
-            View more
-          </a>
-          <ProductModal
-            open={open}
-            onClose={handleClose}
-            product={props.product}
-          ></ProductModal>
-        </div>
-        <div className="product__description">{/* p.description */}</div>
       </div>
     </div>
   );
