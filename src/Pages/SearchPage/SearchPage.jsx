@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useLocation, useParams } from "react-router-dom";
 
 function SearchPage() {
@@ -6,14 +7,21 @@ function SearchPage() {
   console.log(testValue, search);
 
   return (
-    <div>
-      <br />
-      <br />
-      <br />
-      <span>
-        {testValue} {search}
-      </span>
-    </div>
+    <motion.div
+      // Prop that will animate when component is removed from DOM
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <div>
+        <br />
+        <br />
+        <br />
+        <span>
+          {testValue} {search}
+        </span>
+      </div>
+    </motion.div>
   );
 }
 
