@@ -13,7 +13,10 @@ function Header() {
   return (
     <header className={`header-content ${headerBackground ? "open" : ""}`}>
       <div className="header-content__left">
-        <Search searchableProducts={PRODUCTS} />
+        <Search
+          searchableProducts={PRODUCTS}
+          stateChanger={setHeaderBackground}
+        />
       </div>
       <div className="header-content__right">
         <Cart stateChanger={setHeaderBackground} />

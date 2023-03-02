@@ -50,7 +50,7 @@ function Cart(props) {
       </button>
       <div
         onMouseLeave={handleClose}
-        className={`cart-window ${open ? "open" : ""}`}
+        className={`header-window ${open ? "open" : ""}`}
       >
         {productsInCart ? (
           <div>
@@ -68,7 +68,7 @@ function Cart(props) {
       </div>
       <div
         onClick={handleClose}
-        className={`cart-overlay ${open ? "open" : ""}`}
+        className={`header-overlay ${open ? "open" : ""}`}
       ></div>
     </div>
   );

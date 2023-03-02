@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./Search.css";
-import Product from "../../Product/Product";
 import { Link, useNavigate } from "react-router-dom";
+import SearchItem from "./SearchItem";
 
 function Search(props) {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
+
   // SearchPage router param
   const [backUrl, setBackUrl] = useState();
   const navigate = useNavigate();
@@ -19,12 +20,14 @@ function Search(props) {
 
   const searchActiveHandler = () => {
     setIsSearching(true);
+    props.stateChanger(true); // Update header (parent)
   };
 
   const searchExitHandler = () => {
     // Fix unwanted behaviour where you cant click on the livesearch without
     // the results disappearing
     setIsSearching(false);
+    props.stateChanger(false); // Update header (parent)
   };
 
   const liveSearch = (e) => {
@@ -80,12 +83,20 @@ function Search(props) {
             placeholder="What are you looking for?"
           />
         </div>
-        <div className="search-results">
+        <div
+          className={`header-window search-results ${
+            isSearching ? "open" : ""
+          }`}
+        >
           {isSearching &&
             filteredProducts.map((p) => {
-              return <Product key={p.id} product={p} />;
+              return <SearchItem key={p.id} product={p} />;
             })}
         </div>
+        <div
+          onClick={searchExitHandler}
+          className={`header-overlay ${isSearching ? "open" : ""}`}
+        ></div>
       </form>
     </div>
   );

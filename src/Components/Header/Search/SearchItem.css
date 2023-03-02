@@ -1,0 +1,45 @@
+.search-item {
+  display: flex;
+  justify-content: space-between;
+}
+.search-item > div {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/*Thumbnail*/
+.search-item__thumb {
+  display: flex;
+}
+.search-item__thumb * {
+  width: 54px;
+  height: 54px;
+}
+
+/*SVG*/
+.search-item ion-icon {
+  color: white;
+  opacity: 1;
+  font-size: 0.8rem;
+}
+
+/*Price*/
+.search-item__price {
+  min-width: 60px;
+  text-align: right;
+}
+
+/*Quantity*/
+.search-item__quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.search-item__quantity {
+  width: 34px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-align: center;
+}
