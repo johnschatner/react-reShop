@@ -19,7 +19,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/search" element={<SearchPage />} />
+            <Route path="/:testValue" element={<SearchPage />} />
           </Routes>
         </Router>
       </ShopContextProvider>

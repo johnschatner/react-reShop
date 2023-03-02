@@ -2,6 +2,10 @@
   width: fit-content;
 }
 
+.search-btn a {
+  display: flex;
+}
+
 .search-bar__container {
   display: flex;
   align-items: center;
