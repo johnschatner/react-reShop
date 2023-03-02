@@ -57,7 +57,9 @@ function Cart(props) {
             </div>
           </div>
         ) : (
-          <span className="cart-empty">{defaultMessages.emptyCart}</span>
+          <span className="cart-empty shop-message">
+            {defaultMessages.emptyCart}
+          </span>
         )}
       </div>
       <div

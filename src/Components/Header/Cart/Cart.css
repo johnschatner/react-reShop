@@ -67,11 +67,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
-  font-size: 1.5rem;
-  font-weight: 100;
-  color: rgba(255, 255, 255, 0.6);
 }
+
 .cart-total {
   position: absolute;
   left: 50%;

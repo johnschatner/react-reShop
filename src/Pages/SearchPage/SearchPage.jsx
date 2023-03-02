@@ -38,7 +38,11 @@ function SearchPage() {
   if (results.length > 0) {
     searchEls = <ProductGrid products={results} />;
   } else {
-    searchEls = <div>Ooops! No matching products were found...</div>;
+    searchEls = (
+      <div className="shop-message">
+        Ooops! No matching products were found...
+      </div>
+    );
   }
 
   return (
@@ -49,7 +53,6 @@ function SearchPage() {
       animate={{ opacity: 1, scale: 1 }}
     >
       <div>
-        <br />
         <br />
         <br />
         <div>{searchEls}</div>
