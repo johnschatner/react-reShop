@@ -62,6 +62,16 @@
   scale: 1;
 }
 
+.cart-count {
+  position: absolute;
+  top: 70%;
+  left: 51%;
+  transform: translate(-50%, -55%);
+  color: rgb(166, 166, 166);
+  font-size: 0.55rem;
+  font-weight: 500;
+}
+
 .cart-empty {
   position: absolute;
   left: 50%;

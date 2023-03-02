@@ -33,6 +33,9 @@ function Cart(props) {
     }
   });
 
+  // Get total cart quantity
+  const quantity = Object.values(cartItems).reduce((a, b) => a + b, 0);
+
   // Get the total cart amount
   const subtotal = getCartSubtotal();
 
@@ -43,6 +46,7 @@ function Cart(props) {
     <div className="cart-container">
       <button onClick={handleOpen} className="icon-btn">
         <ion-icon name="bag-outline"></ion-icon>
+        <span className="cart-count">{quantity}</span>
       </button>
       <div
         onMouseLeave={handleClose}
