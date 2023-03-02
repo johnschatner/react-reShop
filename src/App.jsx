@@ -6,6 +6,7 @@ import { ShopContextProvider } from "./context/ReShopContext";
 
 // Components
 import Header from "./Components/Header/Header";
+import AnimatedRoutes from "./Components/AnimatedRoutes/AnimatedRoutes";
 
 // Pages
 import HomePage from "./Pages/HomePage/HomePage";
@@ -17,10 +18,11 @@ function App() {
       <ShopContextProvider>
         <Router>
           <Header />
-          <Routes>
+          <AnimatedRoutes />
+          {/* <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/:testValue" element={<SearchPage />} />
-          </Routes>
+          </Routes> */}
         </Router>
       </ShopContextProvider>
     </div>
