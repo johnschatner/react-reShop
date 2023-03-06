@@ -18,7 +18,6 @@ function SearchPage() {
   // Search function that returns matching products
   const manualSearch = (str) => {
     if (str === "undefined") {
-      console.log("You haven't searched for anything!");
       return [];
     } else {
       // Filter the products based on search string

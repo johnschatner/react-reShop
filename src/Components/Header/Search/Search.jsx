@@ -24,8 +24,6 @@ function Search(props) {
   };
 
   const searchExitHandler = () => {
-    // Fix unwanted behaviour where you cant click on the livesearch without
-    // the results disappearing
     setIsSearching(false);
     props.stateChanger(false); // Update header (parent)
   };
@@ -44,8 +42,17 @@ function Search(props) {
     setFilteredProducts(() => results);
   };
 
+  const searchEventHandler = (e) => {
+    if (e.key === "Enter" || e.type === "click") {
+      const searchQuery = getSearchQuery(); // Gets current search query from liveSearch state
+      searchQuery !== undefined && searchQuery !== "undefined" // Check if truthy str and not empty
+        ? navigate(`search?q=${searchQuery}`) // Navigate using useNavigate hook
+        : null;
+    }
+  };
+
   const getSearchQuery = () => {
-    return backUrl !== "" ? backUrl : "undefined";
+    return backUrl !== "" ? backUrl : "undefined"; // Returns state or "undefined"
   };
 
   return (
@@ -58,22 +65,13 @@ function Search(props) {
       <form
         className="search-form"
         tabIndex={"0"}
-        onKeyDown={(e) =>
-          e.key === "Enter" ? navigate(`search?q=${getSearchQuery()}`) : null
-        }
+        onKeyDown={searchEventHandler}
         onBlur={searchExitHandler}
         onSubmit={formHandler}
       >
         <div className="search-bar__container">
-          <button className="search-btn icon-btn">
-            <Link
-              to={{
-                pathname: `/${"search"}`,
-                search: `?q=${getSearchQuery()}`,
-              }}
-            >
-              <ion-icon name="search-outline"></ion-icon>
-            </Link>
+          <button onClick={searchEventHandler} className="search-btn icon-btn">
+            <ion-icon name="search-outline"></ion-icon>
           </button>
           <input
             onFocus={searchActiveHandler}
