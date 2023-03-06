@@ -1,31 +1,24 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./Search.css";
 import { Link, useNavigate } from "react-router-dom";
 import SearchItem from "./SearchItem";
 
+// Context
+import { HeaderContext } from "../../../context/ReHeaderContext";
+
 function Search(props) {
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isSearching, setIsSearching] = useState(false);
+  const { isSearching, handleSearch } = useContext(HeaderContext);
 
   // SearchPage router param
   const [backUrl, setBackUrl] = useState();
   const navigate = useNavigate();
 
   // One less layer of abstraction
-  const products = props.searchableProducts;
+  const { searchableProducts } = props;
 
   const formHandler = (e) => {
     e.preventDefault();
-  };
-
-  const searchActiveHandler = () => {
-    setIsSearching(true);
-    props.stateChanger(true); // Update header (parent)
-  };
-
-  const searchExitHandler = () => {
-    setIsSearching(false);
-    props.stateChanger(false); // Update header (parent)
   };
 
   const liveSearch = (e) => {
@@ -33,7 +26,7 @@ function Search(props) {
     const searchString = e.target.value.toLowerCase();
     setBackUrl(searchString);
     // Filter the products based on search string
-    let results = products.filter((product) =>
+    let results = searchableProducts.filter((product) =>
       product.name.toLowerCase().includes(searchString)
     );
     // Limit arr size
@@ -66,7 +59,7 @@ function Search(props) {
         className="search-form"
         tabIndex={"0"}
         onKeyDown={searchEventHandler}
-        onBlur={searchExitHandler}
+        onBlur={handleSearch}
         onSubmit={formHandler}
       >
         <div className="search-bar__container">
@@ -74,7 +67,7 @@ function Search(props) {
             <ion-icon name="search-outline"></ion-icon>
           </button>
           <input
-            onFocus={searchActiveHandler}
+            onFocus={handleSearch}
             onChange={liveSearch}
             className="form-control"
             type="text"
@@ -82,6 +75,11 @@ function Search(props) {
           />
         </div>
         <div
+          // This event is required since default behaviour closes window
+          // when we try to interact with it
+          onMouseDown={(e) => {
+            e.preventDefault();
+          }}
           className={`header-window search-results ${
             isSearching ? "open" : ""
           }`}
@@ -91,10 +89,6 @@ function Search(props) {
               return <SearchItem key={p.id} product={p} />;
             })}
         </div>
-        <div
-          onClick={searchExitHandler}
-          className={`header-overlay ${isSearching ? "open" : ""}`}
-        ></div>
       </form>
     </div>
   );

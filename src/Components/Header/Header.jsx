@@ -1,27 +1,28 @@
 import "./Header.css";
 import Search from "./Search/Search";
 import Cart from "./Cart/Cart";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 // Context
 import { ShopContext } from "../../context/ReShopContext";
+import { HeaderContext } from "../../context/ReHeaderContext";
 
 function Header() {
-  const [headerOpen, setHeaderOpen] = useState();
-  const [headerBackground, setHeaderBackground] = useState();
   const { PRODUCTS } = useContext(ShopContext);
+  const { headerOpen, closeHeader } = useContext(HeaderContext);
 
   return (
-    <header className={`header-content ${headerBackground ? "open" : ""}`}>
+    <header className={`header-content ${headerOpen ? "open" : ""}`}>
       <div className="header-content__left">
-        <Search
-          searchableProducts={PRODUCTS}
-          stateChanger={setHeaderBackground}
-        />
+        <Search searchableProducts={PRODUCTS} />
       </div>
       <div className="header-content__right">
-        <Cart stateChanger={setHeaderBackground} />
+        <Cart />
       </div>
+      <div
+        onMouseEnter={closeHeader}
+        className={`header-overlay ${headerOpen ? "open" : ""}`}
+      ></div>
     </header>
   );
 }

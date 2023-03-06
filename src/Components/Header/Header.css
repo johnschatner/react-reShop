@@ -35,7 +35,7 @@
   flex-direction: column;
   gap: 1rem;
 
-  position: absolute;
+  position: fixed;
   visibility: hidden;
   top: 46px;
   left: 0;

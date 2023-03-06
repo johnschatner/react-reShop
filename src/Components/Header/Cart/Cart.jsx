@@ -1,30 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "./Cart.css";
 import CartItem from "./CartItem";
 
 // Context
 import { ShopContext } from "../../../context/ReShopContext";
+import { HeaderContext } from "../../../context/ReHeaderContext";
 
-function Cart(props) {
+function Cart() {
   // Context
   const { PRODUCTS, cartItems, getCartSubtotal, clearCart, defaultMessages } =
     useContext(ShopContext);
-
-  // Transition window
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    if (open) {
-      setOpen(false);
-      props.stateChanger(false); // Update header (parent)
-    } else {
-      setOpen(true);
-      props.stateChanger(true); // Update header (parent)
-    }
-  };
-  const handleClose = () => {
-    setOpen(false);
-    props.stateChanger(false); // Update header (parent)
-  };
+  const { viewingCart, handleCart } = useContext(HeaderContext);
 
   // Iterate over each product and assign to a CartItem component
   let cartEls = PRODUCTS.map((p) => {
@@ -44,14 +30,11 @@ function Cart(props) {
 
   return (
     <div className="cart-container">
-      <button onClick={handleOpen} className="icon-btn">
+      <button onClick={handleCart} className="icon-btn">
         <ion-icon name="bag-outline"></ion-icon>
         <span className="cart-count">{quantity}</span>
       </button>
-      <div
-        onMouseLeave={handleClose}
-        className={`header-window ${open ? "open" : ""}`}
-      >
+      <div className={`header-window ${viewingCart ? "open" : ""}`}>
         {productsInCart ? (
           <div>
             {cartEls}
@@ -66,10 +49,6 @@ function Cart(props) {
           </span>
         )}
       </div>
-      <div
-        onClick={handleClose}
-        className={`header-overlay ${open ? "open" : ""}`}
-      ></div>
     </div>
   );
 }

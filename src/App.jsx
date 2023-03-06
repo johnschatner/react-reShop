@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 // Context
 import { ShopContextProvider } from "./context/ReShopContext";
+import { HeaderContextProvider } from "./context/ReHeaderContext";
 
 // Components
 import Header from "./Components/Header/Header";
@@ -13,7 +14,9 @@ function App() {
     <div className="App">
       <ShopContextProvider>
         <Router>
-          <Header />
+          <HeaderContextProvider>
+            <Header />
+          </HeaderContextProvider>
           <AnimatedRoutes />
         </Router>
       </ShopContextProvider>
