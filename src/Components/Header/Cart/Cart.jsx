@@ -40,7 +40,9 @@ function Cart() {
             {cartEls}
             <div className="cart-total">
               Subtotal: ${subtotal}
-              <button onClick={() => clearCart()}>Clear cart</button>
+              <button className="re-btn" onClick={() => clearCart()}>
+                Clear cart
+              </button>
             </div>
           </div>
         ) : (

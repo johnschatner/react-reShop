@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.625rem;
+  padding: 0.8rem;
 
   backdrop-filter: saturate(180%) blur(10px);
   background-color: var(--globalnav-background-opaque);
@@ -37,7 +37,7 @@
 
   position: fixed;
   visibility: hidden;
-  top: 46px;
+  top: 52px;
   left: 0;
   z-index: 100;
   width: 100vw;
@@ -49,9 +49,9 @@
   height: auto;
   min-height: 250px;
   opacity: 0;
-  transition: 500ms var(--globaltransition-header),
-    color 600ms var(--globaltransition-header),
-    opacity 500ms var(--globaltransition-header);
+  transition: 1200ms var(--globaltransition-header),
+    color 400ms var(--globaltransition-header),
+    opacity 250ms var(--globaltransition-header);
   background-color: var(--globalnav-background-light);
   color: transparent;
 }
@@ -76,7 +76,7 @@
 .header-overlay {
   position: absolute;
   z-index: -10;
-  top: 46px;
+  top: 52px;
   left: 0;
   width: 100vw;
   height: 100vh;

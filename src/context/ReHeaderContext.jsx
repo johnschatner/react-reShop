@@ -19,7 +19,6 @@ export const HeaderContextProvider = (props) => {
   };
 
   const handleCart = (e) => {
-    console.log(e);
     if (e.type === "click") {
       if (!headerOpen) {
         setIsSearching(false);

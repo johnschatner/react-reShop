@@ -14,7 +14,8 @@ function SearchPage() {
 
   // Regex strings for search
   const initializedSearchString = search.replace(/[?]q=/, ""); // Remove "?q=" from str
-  const searchString = initializedSearchString.replace(/[%]20/, " "); // If "%20" remove from str
+  const searchString = initializedSearchString.replaceAll(/[%]20/g, " "); // If "%20" remove from str
+
   // Search function that returns matching products
   const manualSearch = (str) => {
     if (str === "undefined") {
