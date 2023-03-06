@@ -27,19 +27,19 @@ function CartItem(props) {
           <button
             className="icon-btn"
             onClick={() => {
-              addToCart(id);
+              removeFromCart(id);
             }}
           >
-            <ion-icon name="add-outline"></ion-icon>
+            <ion-icon name="remove-outline"></ion-icon>
           </button>
           <span className="cart-item__quantity">{quantity}</span>
           <button
             className="icon-btn"
             onClick={() => {
-              removeFromCart(id);
+              addToCart(id);
             }}
           >
-            <ion-icon name="remove-outline"></ion-icon>
+            <ion-icon name="add-outline"></ion-icon>
           </button>
         </div>
         <div className="cart-item__price">${itemTotal}</div>

@@ -49,9 +49,9 @@
   height: auto;
   min-height: 250px;
   opacity: 0;
-  transition: 1000ms var(--globaltransition-header),
-    color 400ms var(--globaltransition-header),
-    opacity 300ms var(--globaltransition-header);
+  transition: 500ms var(--globaltransition-header),
+    color 600ms var(--globaltransition-header),
+    opacity 500ms var(--globaltransition-header);
   background-color: var(--globalnav-background-light);
   color: transparent;
 }
@@ -84,7 +84,7 @@
   opacity: 0;
   scale: 0;
 
-  transition: 800ms opacity cubic-bezier(0.15, 0.8, 0, 1), 0ms scale;
+  transition: 600ms opacity cubic-bezier(0.15, 0.8, 0, 1), 0ms scale;
   background-color: rgba(22, 22, 23, 0.8);
   backdrop-filter: saturate(180%) blur(10px);
 }

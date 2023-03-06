@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import "./Search.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SearchItem from "./SearchItem";
 
 // Context
@@ -16,6 +16,8 @@ function Search(props) {
 
   // One less layer of abstraction
   const { searchableProducts } = props;
+
+  const searchField = useRef(null);
 
   const formHandler = (e) => {
     e.preventDefault();
@@ -50,11 +52,6 @@ function Search(props) {
 
   return (
     <div className="flex">
-      <div className="logo">
-        <Link to="/" className="icon-btn">
-          <ion-icon name="logo-apple"></ion-icon>
-        </Link>
-      </div>
       <form
         className="search-form"
         tabIndex={"0"}
@@ -67,6 +64,7 @@ function Search(props) {
             <ion-icon name="search-outline"></ion-icon>
           </button>
           <input
+            ref={searchField}
             onFocus={handleSearch}
             onChange={liveSearch}
             className="form-control"
