@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { ShopContext } from "../../context/ReShopContext";
 
 function Header() {
+  const [headerOpen, setHeaderOpen] = useState();
   const [headerBackground, setHeaderBackground] = useState();
   const { PRODUCTS } = useContext(ShopContext);
 
