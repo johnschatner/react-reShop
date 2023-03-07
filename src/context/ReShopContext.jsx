@@ -8,6 +8,12 @@ export const ShopContextProvider = (props) => {
   // PRODUCTS
   const [PRODUCTS, setPRODUCTS] = useState(products);
 
+  const getProduct = (id) => {
+    // Find the index of the product with the matching ID
+    const index = PRODUCTS.findIndex((item) => item.id === id);
+    return PRODUCTS[index];
+  };
+
   // ALERTS
 
   const defaultMessages = {
@@ -74,6 +80,7 @@ export const ShopContextProvider = (props) => {
   // Export
   const contextValue = {
     PRODUCTS,
+    getProduct,
     cartItems,
     addToCart,
     removeFromCart,

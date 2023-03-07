@@ -1,37 +1,11 @@
 import "./ProductModal.css";
-import { useContext } from "react";
-
-// Context
-import { ShopContext } from "../../context/ReShopContext";
 
 // Components
 import AddReview from "../Reviews/AddReview";
+import DisplayReviews from "../Reviews/DisplayReviews";
 
 function ProductModal(props) {
   const { id, name, description, price, thumbnail, reviews } = props.product;
-
-  const getAmountOfReviews = (arr) => {
-    return arr !== undefined ? arr.length : 0;
-  };
-  const getReviews = (arr) => {
-    if (arr !== undefined) {
-      arr.map((review) => {
-        return <div>{review.review}</div>;
-      });
-    }
-  };
-
-  const reviewMessages =
-    reviews !== undefined
-      ? reviews.map((item) => {
-          return (
-            <div>
-              <span>{item.rating}</span>
-              <span>{item.review}</span>
-            </div>
-          );
-        })
-      : null;
 
   const handleClose = (e) => {
     // FadeOut
@@ -72,6 +46,7 @@ function ProductModal(props) {
               <div>{price}</div>
               <div>{description}</div>
               <br />
+              <DisplayReviews id={id} />
               <AddReview id={id} />
             </div>
           </div>

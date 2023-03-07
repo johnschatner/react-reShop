@@ -32,12 +32,13 @@ function SearchPage() {
 
   // Execute function and store any matches
   let results = manualSearch(searchString);
+
   // Convert matches to JSX elements
   let searchEls;
 
   // Check if we got any results
   if (results.length > 0) {
-    searchEls = <ProductGrid products={results} />;
+    searchEls = <ProductGrid searchResults={results} />;
   } else {
     searchEls = (
       <div className="shop-message">
