@@ -56,9 +56,28 @@
 }
 
 /*Validity*/
+:root {
+  --clr-invalid: #ba5353;
+  --clr-valid: #53ba68;
+}
+
 .rate.invalid {
-  outline: 2px solid #c28585;
+  outline: 2px solid var(--clr-invalid);
 }
 .reviewArea.invalid {
-  outline: 2px solid #ba5353;
+  outline: 2px solid var(--clr-invalid);
+}
+
+.submitted-review ion-icon {
+  font-size: 64px;
+  --ionicon-stroke-width: 6px;
+}
+.submitted-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.submitted-review span {
+  width: 120px;
 }

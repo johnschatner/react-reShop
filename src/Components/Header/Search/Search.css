@@ -1,5 +1,7 @@
-.search-form {
-  width: 300px;
+@media (min-width: 768px) {
+  .search-form {
+    width: 300px;
+  }
 }
 
 .search-btn a {
