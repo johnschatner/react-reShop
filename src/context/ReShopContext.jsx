@@ -1,13 +1,20 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import * as data from "../Products/products.json";
-const PRODUCTS = data.default;
+const products = data.default;
 
 export const ShopContext = createContext(null);
 
 export const ShopContextProvider = (props) => {
+  // PRODUCTS
+  const [PRODUCTS, setPRODUCTS] = useState(products);
+
+  // ALERTS
+
   const defaultMessages = {
     emptyCart: "Your cart is empty",
   };
+
+  // CART
 
   const getDefaultCart = () => {
     let cart = {};
@@ -42,6 +49,28 @@ export const ShopContextProvider = (props) => {
     setCartItems(() => getDefaultCart());
   };
 
+  // REVIEWS
+  const defaultReview = { rating: 5, review: "Something something" };
+
+  const addReview = (id, review = defaultReview) => {
+    // Find the index of the item with the matching ID
+    const index = PRODUCTS.findIndex((item) => item.id === id);
+
+    // Create a new copy of the items array with the updated item
+    const newPRODUCTS = [...PRODUCTS];
+    if (newPRODUCTS[index].reviews) {
+      // If the reviews property exists, append the new review to it
+      newPRODUCTS[index].reviews = [...newPRODUCTS[index].reviews, review];
+    } else {
+      // If the reviews property doesn't exist, create it with the new review
+      newPRODUCTS[index].reviews = [review];
+    }
+
+    // Update the state with the new items array
+    setPRODUCTS(newPRODUCTS);
+  };
+
+  // Export
   const contextValue = {
     PRODUCTS,
     cartItems,
@@ -49,11 +78,9 @@ export const ShopContextProvider = (props) => {
     removeFromCart,
     getCartSubtotal,
     clearCart,
+    addReview,
     defaultMessages,
   };
-
-  // console.log("Products:", PRODUCTS);
-  // console.log("Cart:", cartItems);
 
   return (
     <ShopContext.Provider value={contextValue}>

@@ -1,9 +1,32 @@
 import "./ProductModal.css";
 
 function ProductModal(props) {
-  const handleClose = (e) => {
-    console.log("Close!");
+  const { name, description, price, thumbnail, reviews } = props.product;
 
+  const getAmountOfReviews = (arr) => {
+    return arr !== undefined ? arr.length : 0;
+  };
+  const getReviews = (arr) => {
+    if (arr !== undefined) {
+      arr.map((review) => {
+        return <div>{review.review}</div>;
+      });
+    }
+  };
+
+  const reviewMessages =
+    reviews !== undefined
+      ? reviews.map((item) => {
+          return (
+            <div>
+              <span>{item.rating}</span>
+              <span>{item.review}</span>
+            </div>
+          );
+        })
+      : null;
+
+  const handleClose = (e) => {
     // FadeOut
     // Animation settings
     const anim = {
@@ -41,14 +64,13 @@ function ProductModal(props) {
             </div>
             <div className="product-modal__content">
               <div>
-                <img
-                  src={`/src/products/${props.product.thumbnail}.avif`}
-                  alt={props.product.name}
-                />
+                <img src={`/src/products/${thumbnail}.avif`} alt={name} />
               </div>
-              <div>{props.product.name}</div>
-              <div>{props.product.price}</div>
-              <div>{props.product.description}</div>
+              <div>{name}</div>
+              <div>{price}</div>
+              <div>{description}</div>
+              <br />
+              {reviewMessages}
             </div>
           </div>
           <div onClick={handleClose} className="product-modal__overlay"></div>

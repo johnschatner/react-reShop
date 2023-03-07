@@ -1,0 +1,12 @@
+.review-btn {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  bottom: 40px;
+  right: 40px;
+  background-color: rgb(133, 175, 197);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 99999px;
+}

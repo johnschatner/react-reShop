@@ -5,6 +5,10 @@
     "price": 110,
     "thumbnail": "images/1-front",
     "secondaryThumbnail": "images/1-back",
+    "reviews": [
+      { "rating": 5, "review": "Something something" },
+      { "rating": 4, "review": "Yes, there's more something" }
+    ],
     "headline": "Set Your Workspace Apart",
     "description": "The leather desk pad brings visual structure and organization to your workspace. The premium, vegetable-tanned leather is buttery soft to the touch and dynamic, with distinguished character that will age and develop as you use it."
   },
