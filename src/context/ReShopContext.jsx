@@ -68,6 +68,7 @@ export const ShopContextProvider = (props) => {
 
     // Update the state with the new items array
     setPRODUCTS(newPRODUCTS);
+    console.log(newPRODUCTS);
   };
 
   // Export

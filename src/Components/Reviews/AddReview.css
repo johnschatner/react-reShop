@@ -1,12 +1,64 @@
-.review-btn {
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  bottom: 40px;
-  right: 40px;
-  background-color: rgb(133, 175, 197);
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 99999px;
+.rate {
+  display: inline-block;
+  height: 36px;
+  padding: 0 6px 0 12px;
+
+  border-radius: 9px;
+  outline: 1px solid transparent;
+  outline-offset: -3px;
+}
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+.rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ccc;
+}
+.rate:not(:checked) > label:before {
+  content: "★ ";
+}
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+/*Review textarea*/
+.reviewArea {
+  resize: vertical;
+  max-height: 150px;
+  min-height: 100px;
+  padding: 1rem;
+  border: none;
+
+  transition: 50ms ease;
+  border-radius: 9px;
+  outline: 1px solid rgb(162, 162, 162);
+  outline-offset: -3px;
+}
+.reviewArea:focus {
+  border: none;
+}
+
+/*Validity*/
+.rate.invalid {
+  outline: 2px solid #c28585;
+}
+.reviewArea.invalid {
+  outline: 2px solid #ba5353;
 }

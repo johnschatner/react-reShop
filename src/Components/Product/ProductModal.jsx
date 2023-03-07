@@ -1,7 +1,14 @@
 import "./ProductModal.css";
+import { useContext } from "react";
+
+// Context
+import { ShopContext } from "../../context/ReShopContext";
+
+// Components
+import AddReview from "../Reviews/AddReview";
 
 function ProductModal(props) {
-  const { name, description, price, thumbnail, reviews } = props.product;
+  const { id, name, description, price, thumbnail, reviews } = props.product;
 
   const getAmountOfReviews = (arr) => {
     return arr !== undefined ? arr.length : 0;
@@ -49,12 +56,7 @@ function ProductModal(props) {
     <div>
       {props.open && (
         <div>
-          {/* Below onMouseDown.. prevents the modal from dissappearing initiated inside search */}
-          <div
-            onMouseDown={(e) => e.preventDefault()}
-            className="product-modal"
-            tabIndex={"1"}
-          >
+          <div className="product-modal" tabIndex={"1"}>
             <div onClick={handleClose} className="modalClose">
               <ion-icon
                 name="close-outline"
@@ -70,7 +72,7 @@ function ProductModal(props) {
               <div>{price}</div>
               <div>{description}</div>
               <br />
-              {reviewMessages}
+              <AddReview id={id} />
             </div>
           </div>
           <div onClick={handleClose} className="product-modal__overlay"></div>

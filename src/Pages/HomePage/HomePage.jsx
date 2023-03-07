@@ -13,7 +13,6 @@ function HomePage() {
       animate={{ opacity: 1, scale: 1 }}
     >
       <ProductGrid />
-      <AddReview />
     </motion.div>
   );
 }
