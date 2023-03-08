@@ -17,6 +17,7 @@ function Header() {
       <div className="logo">
         <Link to="/" className="icon-btn">
           <ion-icon name="logo-apple-ar"></ion-icon>
+          <span className="logo-name">ReShop</span>
         </Link>
       </div>
       <div className="header-content__left">

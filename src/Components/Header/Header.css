@@ -1,3 +1,16 @@
+.logo * {
+  color: rgb(219, 219, 219);
+  text-decoration: none;
+  transition: 250ms var(--globaltransition-header);
+}
+.logo:hover *,
+.logo:active * {
+  color: rgb(237, 237, 237);
+}
+.logo-name {
+  margin-left: 0.5rem;
+}
+
 .header-content {
   position: fixed;
   z-index: 90;
@@ -23,6 +36,12 @@
   color: rgba(0, 0, 0, 0.8);
 }
 .header-content.open input[type="text"].form-control {
+  color: rgba(0, 0, 0, 0.8);
+}
+.header-content.open .logo-name {
+  color: rgba(0, 0, 0, 0.8);
+}
+.header-content.open .cart-count {
   color: rgba(0, 0, 0, 0.8);
 }
 

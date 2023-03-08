@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import * as data from "../Products/products.json";
 const products = data.default;
 
