@@ -1,5 +1,6 @@
 import "./Product.css";
 import { useContext, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { easeInOut, motion } from "framer-motion";
 import ProductModal from "./ProductModal";
 
@@ -12,6 +13,16 @@ function Product(props) {
 
   // Object (Product) destructuring
   const { id, name, price, thumbnail } = props.product;
+
+  // React router to navigate programmatically
+  const navigate = useNavigate();
+  const productNameUrl = name
+    .toLowerCase()
+    .replaceAll(/\s|[()/]/g, (match) => (match === " " ? "-" : ""))
+    .replace(/-+/g, "-");
+  const navigateToProductPage = () => {
+    navigate(`/product/${productNameUrl}&id=${id}`); // Navigate using useNavigate hook
+  };
 
   // Modal state
   const [open, setOpen] = useState(false);
@@ -26,7 +37,10 @@ function Product(props) {
     <div className="product-card">
       <div className="product__image">
         <div className="product__thumb">
-          <a onMouseDown={(e) => e.preventDefault()} onClick={handleOpen}>
+          <a
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={navigateToProductPage}
+          >
             <img src={`/src/products/${thumbnail}.avif`} alt={name} />
           </a>
         </div>

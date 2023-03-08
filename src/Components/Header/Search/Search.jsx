@@ -16,14 +16,18 @@ function Search() {
   const updateBackUrl = (e) => {
     const str = e.target.value.toLowerCase();
     setBackUrl(str);
-    // Filter the products based on search string
-    let results = PRODUCTS.filter((product) =>
-      product.name.toLowerCase().includes(str)
-    );
-    // Limit arr size
-    results = [...results.slice(0, 3)];
-    // Store results in state
-    setFilteredProducts(() => results);
+    if (str !== "") {
+      // Filter the products based on search string
+      let results = PRODUCTS.filter((product) =>
+        product.name.toLowerCase().includes(str)
+      );
+      // Limit arr size
+      results = [...results.slice(0, 3)];
+      // Store results in state
+      setFilteredProducts(() => results);
+    } else {
+      setFilteredProducts(() => []);
+    }
   };
 
   const searchEventHandler = (e) => {

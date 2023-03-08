@@ -12,6 +12,8 @@ function SearchPage() {
   const { PRODUCTS } = useContext(ShopContext);
   const { search } = useLocation();
 
+  console.log("In SearchPage");
+
   // Regex strings for search
   const searchString = search.replaceAll(/^(?:\?q=)?|%20/g, (match) =>
     match === "%20" ? " " : ""

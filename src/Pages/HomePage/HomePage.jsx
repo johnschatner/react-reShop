@@ -2,9 +2,10 @@ import { motion } from "framer-motion";
 
 // Components
 import ProductGrid from "../../Components/Product/ProductGrid";
-import AddReview from "../../Components/Reviews/AddReview";
 
 function HomePage() {
+  console.log("In HomePage");
+
   return (
     <motion.div
       // Prop that will animate when component is removed from DOM
