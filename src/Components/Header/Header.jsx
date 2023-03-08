@@ -15,10 +15,6 @@ function Header() {
   const { headerOpen, closeHeader, viewingCart, isSearching } =
     useContext(HeaderContext);
 
-  const preventDefault = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <header className={`header-content ${headerOpen ? "open" : ""}`}>
       <div className="logo">

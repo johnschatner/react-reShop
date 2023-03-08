@@ -1,5 +1,7 @@
 .cart-item {
   display: flex;
+  gap: 4rem;
+  margin-bottom: 1rem;
   justify-content: space-between;
 }
 .cart-item > div {

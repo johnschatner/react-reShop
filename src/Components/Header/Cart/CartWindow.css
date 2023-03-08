@@ -22,18 +22,9 @@
 }
 
 .cart-empty {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .cart-total {
-  position: absolute;
-  left: 50%;
-  translate: -50% 0;
-  bottom: 1.5rem;
-
   text-align: center;
   font-size: 1.25rem;
 }

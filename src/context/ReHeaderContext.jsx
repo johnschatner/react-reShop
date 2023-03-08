@@ -12,7 +12,6 @@ export const HeaderContextProvider = (props) => {
 
   const handleSearch = (e) => {
     if (e.type === "focus") {
-      console.log("FOCUS");
       setViewingCart(false);
       setHeaderOpen(true);
       setIsSearching(true);
@@ -22,7 +21,6 @@ export const HeaderContextProvider = (props) => {
   const handleCart = (e) => {
     if (e.type === "click") {
       if (!headerOpen) {
-        console.log("A");
         setIsSearching(false);
         setHeaderOpen(true);
         setViewingCart(true);
@@ -30,7 +28,6 @@ export const HeaderContextProvider = (props) => {
         setIsSearching(false);
         setViewingCart(true);
       } else {
-        console.log("F");
         setHeaderOpen(false);
         setViewingCart(false);
       }

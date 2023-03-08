@@ -52,11 +52,12 @@
 .header-window {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
 
   position: fixed;
   visibility: hidden;
-  top: 52px;
+  top: 54px;
   left: 0;
   z-index: 100;
   width: 100vw;
@@ -67,24 +68,32 @@
   transform-origin: top;
   height: auto;
   min-height: 250px;
-  opacity: 0;
-  transition: 1200ms var(--globaltransition-header),
+  opacity: 0.4;
+  transition: 600ms var(--globaltransition-header),
     color 400ms var(--globaltransition-header),
-    opacity 250ms var(--globaltransition-header);
+    opacity 400ms var(--globaltransition-header);
   background-color: var(--globalnav-background-light);
   color: transparent;
 }
 
 .header-window.open {
   visibility: visible;
-  padding: 2rem 2rem 5rem 2rem;
-  opacity: 1;
+  padding: 2rem;
   color: white;
+  opacity: 1;
   transform: scaleY(1);
 }
 .header-window.open * {
   opacity: 1;
   color: black;
+}
+
+.header-window.open > div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
 }
 
 /*Search results specifically*/
@@ -95,7 +104,7 @@
 .header-overlay {
   position: absolute;
   z-index: -10;
-  top: 52px;
+  top: 54px;
   left: 0;
   width: 100vw;
   height: 100vh;

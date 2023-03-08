@@ -1,6 +1,7 @@
 .search-item {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 .search-item > div {
   display: flex;
