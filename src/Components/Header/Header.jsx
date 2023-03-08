@@ -1,16 +1,23 @@
 import "./Header.css";
-import Search from "./Search/Search";
-import Cart from "./Cart/Cart";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 // Context
-import { ShopContext } from "../../context/ReShopContext";
 import { HeaderContext } from "../../context/ReHeaderContext";
 
+// Components
+import OpenCart from "./Cart/OpenCart";
+import CartWindow from "./Cart/CartWindow";
+import Search from "./Search/Search";
+import SearchWindow from "./Search/SearchWindow";
+
 function Header() {
-  const { PRODUCTS } = useContext(ShopContext);
-  const { headerOpen, closeHeader } = useContext(HeaderContext);
+  const { headerOpen, closeHeader, viewingCart, isSearching } =
+    useContext(HeaderContext);
+
+  const preventDefault = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <header className={`header-content ${headerOpen ? "open" : ""}`}>
@@ -21,11 +28,15 @@ function Header() {
         </Link>
       </div>
       <div className="header-content__left">
-        <Search searchableProducts={PRODUCTS} />
+        <Search />
       </div>
       <div className="header-content__right">
-        <Cart />
+        <OpenCart />
       </div>
+      <main className={`header-window ${headerOpen ? "open" : ""}`}>
+        {viewingCart && <CartWindow />}
+        {isSearching && <SearchWindow />}
+      </main>
       <div
         onMouseEnter={closeHeader}
         className={`header-overlay ${headerOpen ? "open" : ""}`}

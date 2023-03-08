@@ -1,35 +1,24 @@
-import { useState, useContext, useRef } from "react";
-import "./Search.css";
+import "./SearchWindow.css";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import SearchItem from "./SearchItem";
 
 // Context
 import { HeaderContext } from "../../../context/ReHeaderContext";
+import { ShopContext } from "../../../context/ReShopContext";
 
-function Search(props) {
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const { isSearching, handleSearch } = useContext(HeaderContext);
-
-  // SearchPage router param
-  const [backUrl, setBackUrl] = useState();
+function Search() {
+  const { handleSearch, backUrl, setBackUrl, setFilteredProducts } =
+    useContext(HeaderContext);
+  const { PRODUCTS } = useContext(ShopContext);
+  // React router to navigate programmatically
   const navigate = useNavigate();
 
-  // One less layer of abstraction
-  const { searchableProducts } = props;
-
-  const searchField = useRef(null);
-
-  const formHandler = (e) => {
-    e.preventDefault();
-  };
-
-  const liveSearch = (e) => {
-    // Store search string
-    const searchString = e.target.value.toLowerCase();
-    setBackUrl(searchString);
+  const updateBackUrl = (e) => {
+    const str = e.target.value.toLowerCase();
+    setBackUrl(str);
     // Filter the products based on search string
-    let results = searchableProducts.filter((product) =>
-      product.name.toLowerCase().includes(searchString)
+    let results = PRODUCTS.filter((product) =>
+      product.name.toLowerCase().includes(str)
     );
     // Limit arr size
     results = [...results.slice(0, 3)];
@@ -56,36 +45,19 @@ function Search(props) {
         className="search-form"
         tabIndex={"0"}
         onKeyDown={searchEventHandler}
-        onBlur={handleSearch}
-        onSubmit={formHandler}
+        onSubmit={(e) => e.preventDefault()}
       >
         <div className="search-bar__container">
           <button onClick={searchEventHandler} className="search-btn icon-btn">
             <ion-icon name="search-outline"></ion-icon>
           </button>
           <input
-            ref={searchField}
             onFocus={handleSearch}
-            onChange={liveSearch}
+            onChange={updateBackUrl}
             className="form-control"
             type="text"
             placeholder="What are you looking for?"
           />
-        </div>
-        <div
-          // This event is required since default behaviour closes window
-          // when we try to interact with it
-          onMouseDown={(e) => {
-            e.preventDefault();
-          }}
-          className={`header-window search-results ${
-            isSearching ? "open" : ""
-          }`}
-        >
-          {isSearching &&
-            filteredProducts.map((p) => {
-              return <SearchItem key={p.id} product={p} />;
-            })}
         </div>
       </form>
     </div>

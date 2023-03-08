@@ -51,6 +51,9 @@ export const ShopContextProvider = (props) => {
     return totalAmount;
   };
 
+  // Get total cart quantity
+  const cartQuantity = Object.values(cartItems).reduce((a, b) => a + b, 0);
+
   const clearCart = () => {
     setCartItems(() => getDefaultCart());
   };
@@ -82,6 +85,7 @@ export const ShopContextProvider = (props) => {
     PRODUCTS,
     getProduct,
     cartItems,
+    cartQuantity,
     addToCart,
     removeFromCart,
     getCartSubtotal,
