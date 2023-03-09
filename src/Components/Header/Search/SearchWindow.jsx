@@ -10,12 +10,17 @@ import { HeaderContext } from "../../../context/ReHeaderContext";
 import { useNavigate } from "react-router-dom";
 
 function SearchWindow() {
-  const { isSearching, filteredProducts } = useContext(HeaderContext);
+  const { setHeaderOpen, isSearching, setIsSearching, filteredProducts } =
+    useContext(HeaderContext);
   const navigate = useNavigate();
 
   const updateSearch = (e) => {
     const searchQuery = e.target.innerHTML.toLowerCase();
     navigate(`search?q=${searchQuery}`);
+    setTimeout(() => {
+      setIsSearching(() => false);
+      setHeaderOpen(() => false);
+    }, 100);
   };
 
   return (
@@ -38,6 +43,9 @@ function SearchWindow() {
               </button>
               <button onClick={updateSearch} className="search-pill re-btn">
                 Notepad
+              </button>
+              <button onClick={updateSearch} className="search-pill re-btn">
+                Desk pad
               </button>
               <button onClick={updateSearch} className="search-pill re-btn">
                 Mouse pad

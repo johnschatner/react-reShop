@@ -9,8 +9,10 @@ export const ShopContextProvider = (props) => {
   const [PRODUCTS, setPRODUCTS] = useState(products);
 
   const getProduct = (id) => {
+    // Make every input a number
+    const productId = Number(id);
     // Find the index of the product with the matching ID
-    const index = PRODUCTS.findIndex((item) => item.id === id);
+    const index = PRODUCTS.findIndex((item) => item.id === productId);
     return PRODUCTS[index];
   };
 
