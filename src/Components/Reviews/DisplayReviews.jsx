@@ -5,25 +5,14 @@ import { useContext, Fragment } from "react";
 import { ShopContext } from "../../context/ReShopContext";
 
 function DisplayReviews(props) {
-  const { getProduct } = useContext(ShopContext);
+  const { getProduct, getAvgRating } = useContext(ShopContext);
   const { id } = props;
 
   // Get reviews for current product
   const reviews = getProduct(id).reviews;
+  const avgRating = getAvgRating(id);
 
-  // Calculate the average rating
-  let totalRating = 0;
-  let averageRating = 0;
-  if (reviews && reviews.length) {
-    for (let i = 0; i < reviews.length; i++) {
-      totalRating += reviews[i].rating;
-    }
-  }
-  if (reviews && reviews.length) {
-    averageRating = totalRating / reviews.length;
-  }
-
-  console.log(averageRating);
+  console.log(avgRating);
 
   // HTML
   let jsx;

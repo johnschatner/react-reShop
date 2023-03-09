@@ -1,7 +1,20 @@
+.add-review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitted-review ion-icon {
+  color: rgb(0 0 0 / 80%);
+}
+.submitted-review ion-icon:hover {
+  color: rgb(0 0 0 / 80%);
+}
+
 .rate {
   display: inline-block;
   height: 36px;
   padding: 0 6px 0 12px;
+  float: left;
 
   border-radius: 9px;
   outline: 1px solid transparent;

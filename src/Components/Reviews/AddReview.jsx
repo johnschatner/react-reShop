@@ -78,7 +78,7 @@ function AddReview(props) {
         </div>
       )}
       {!validReview && (
-        <form onSubmit={reviewHandler}>
+        <form className="add-review-form" onSubmit={reviewHandler}>
           <div>Leave a review</div>
           <div className={`rate ${ratingValidity ? "valid" : "invalid"}`}>
             <input
@@ -88,7 +88,7 @@ function AddReview(props) {
               value="5"
               onChange={validtyHandler}
             />
-            <label for="star5" title="text">
+            <label htmlFor="star5" title="text">
               5 stars
             </label>
             <input
@@ -98,7 +98,7 @@ function AddReview(props) {
               value="4"
               onChange={validtyHandler}
             />
-            <label for="star4" title="text">
+            <label htmlFor="star4" title="text">
               4 stars
             </label>
             <input
@@ -108,7 +108,7 @@ function AddReview(props) {
               value="3"
               onChange={validtyHandler}
             />
-            <label for="star3" title="text">
+            <label htmlFor="star3" title="text">
               3 stars
             </label>
             <input
@@ -118,7 +118,7 @@ function AddReview(props) {
               value="2"
               onChange={validtyHandler}
             />
-            <label for="star2" title="text">
+            <label htmlFor="star2" title="text">
               2 stars
             </label>
             <input
@@ -128,12 +128,12 @@ function AddReview(props) {
               value="1"
               onChange={validtyHandler}
             />
-            <label for="star1" title="text">
+            <label htmlFor="star1" title="text">
               1 star
             </label>
           </div>
           <textarea
-            maxlength="150"
+            maxLength="150"
             placeholder="Write your review here"
             onChange={validtyHandler}
             className={`reviewArea ${messageValidity ? "valid" : "invalid"}`}

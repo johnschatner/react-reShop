@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
     "framer-motion": "^10.0.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

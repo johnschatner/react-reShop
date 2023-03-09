@@ -1,0 +1,31 @@
+.star-rating {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.star-rating__stars {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star-rating__star {
+  display: flex;
+}
+
+.star-rating__count {
+  font-size: 0.8rem;
+  margin-top: -3px;
+}
+
+.star-rating ion-icon {
+  font-size: 14px;
+  color: rgb(191, 191, 191);
+}
+.star-rating .star-filled ion-icon {
+  color: rgb(0, 0, 0);
+}
+.star-rating ion-icon:hover {
+  color: none;
+}

@@ -42,6 +42,9 @@
   font-weight: 300;
 }
 
+.product-gallery {
+  max-width: 400px;
+}
 .product-gallery img {
   max-width: 400px;
 }
@@ -64,6 +67,7 @@
 .product-desc {
   font-size: 0.9rem;
   color: rgb(124, 124, 124);
+  margin-bottom: 2rem;
 }
 
 .re-btn.addToCart::before {

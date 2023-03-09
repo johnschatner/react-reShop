@@ -82,6 +82,22 @@ export const ShopContextProvider = (props) => {
     console.log(newPRODUCTS);
   };
 
+  const getAvgRating = (id) => {
+    const reviews = getProduct(id).reviews;
+    // Calculate the average rating
+    let totalRating = 0;
+    let averageRating = 0;
+    if (reviews && reviews.length) {
+      for (let i = 0; i < reviews.length; i++) {
+        totalRating += reviews[i].rating;
+      }
+    }
+    if (reviews && reviews.length) {
+      averageRating = totalRating / reviews.length;
+    }
+    return averageRating;
+  };
+
   // Export
   const contextValue = {
     PRODUCTS,
@@ -93,6 +109,7 @@ export const ShopContextProvider = (props) => {
     getCartSubtotal,
     clearCart,
     addReview,
+    getAvgRating,
     defaultMessages,
   };
 
