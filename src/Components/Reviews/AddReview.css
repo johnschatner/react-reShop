@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.add-review-form .re-btn {
+  width: fit-content;
+}
+
 .submitted-review ion-icon {
   color: rgb(0 0 0 / 80%);
 }
@@ -58,6 +62,8 @@
   min-height: 100px;
   padding: 1rem;
   border: none;
+
+  margin-bottom: 1rem;
 
   transition: 50ms ease;
   border-radius: 9px;

@@ -39,13 +39,18 @@ function ProductModal(props) {
               ></ion-icon>
             </div>
             <div className="product-modal__content">
-              <div>
-                <img src={`/src/products/${thumbnail}.avif`} alt={name} />
+              <div className="product-modal-left">
+                <div className="product-modal__gallery">
+                  <img src={`/src/products/${thumbnail}.avif`} alt={name} />
+                </div>
               </div>
-              <div>{name}</div>
-              <div>{price}</div>
-              <div>{description}</div>
-              <br />
+              <div className="product-modal-right">
+                <div className="product-modal__name">{name}</div>
+                <div className="product-modal__price">${price}</div>
+                <div className="product-modal__desc">{description}</div>
+              </div>
+            </div>
+            <div className="product-modal__reviews">
               <DisplayReviews id={id} />
               <AddReview id={id} />
             </div>

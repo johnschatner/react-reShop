@@ -1,6 +1,7 @@
 .product-card {
   display: flex;
   flex-direction: column;
+  max-width: 348px;
 
   background-color: rgb(255, 255, 255);
   padding: 1.25rem;
@@ -31,10 +32,19 @@
   margin-bottom: 2.5rem;
 }
 
+.product__content > :first-child {
+  margin-bottom: 0.35rem;
+}
+.product__content > * {
+  margin-bottom: 0.75rem;
+}
+.product__content > :last-child {
+  margin-bottom: 0rem;
+}
+
 .product__name {
   font-weight: 500;
   font-size: 0.95rem;
-  margin-bottom: 1rem;
 }
 .product__price {
   font-weight: 300;

@@ -1,11 +1,13 @@
 import "./Product.css";
 import { useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { easeInOut, motion } from "framer-motion";
-import ProductModal from "./ProductModal";
+import { useNavigate } from "react-router-dom";
 
 // Context
 import { ShopContext } from "../../context/ReShopContext";
+
+// Components
+import ProductModal from "./ProductModal";
+import StarRating from "../Reviews/StarRating";
 
 function Product(props) {
   // ShopContext
@@ -49,6 +51,7 @@ function Product(props) {
         <div className="product__name">
           <span>{name}</span>
         </div>
+        <StarRating id={id} showCount={true}></StarRating>
         <div className="product-content__box">
           <div className="product-content__box-left">
             <div className="product__price">

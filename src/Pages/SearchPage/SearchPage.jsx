@@ -12,8 +12,6 @@ function SearchPage() {
   const { PRODUCTS } = useContext(ShopContext);
   const { search } = useLocation();
 
-  console.log("In SearchPage");
-
   // Regex strings for search
   const searchString = search.replaceAll(/^(?:\?q=)?|%20/g, (match) =>
     match === "%20" ? " " : ""
@@ -57,6 +55,10 @@ function SearchPage() {
       animate={{ opacity: 1, scale: 1 }}
     >
       <div>
+        <span>
+          Your search for "{searchString}" gave {results.length} result
+          {results.length > 1 ? "s" : null}
+        </span>
         <div>{searchEls}</div>
       </div>
     </motion.div>

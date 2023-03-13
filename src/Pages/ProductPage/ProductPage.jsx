@@ -14,6 +14,7 @@ import { ShopContext } from "../../context/ReShopContext";
 // Components
 import StarRating from "../../Components/Reviews/StarRating";
 import AddReview from "../../Components/Reviews/AddReview";
+import DisplayReviews from "../../Components/Reviews/DisplayReviews";
 
 function ProductPage() {
   const { pathname } = useLocation();
@@ -69,7 +70,7 @@ function ProductPage() {
               <div className="product-content">
                 <div className="product-title">{name}</div>
                 <div className="product-price">${price}</div>
-                <StarRating id={id} />
+                <StarRating id={id} showCount={true} />
                 <div className="addToCart-container">
                   <button
                     onClick={() => addToCart(id)}
@@ -83,6 +84,9 @@ function ProductPage() {
             <div className="product-lower-content">
               <div className="product-headline">{headline}</div>
               <div className="product-desc">{description}</div>
+              <br></br>
+              <DisplayReviews id={id} />
+              <br></br>
               <AddReview id={id} />
             </div>
           </main>

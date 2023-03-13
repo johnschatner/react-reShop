@@ -1,8 +1,11 @@
 import "./DisplayReviews.css";
-import { useContext, Fragment } from "react";
+import { useContext } from "react";
 
 // Context
 import { ShopContext } from "../../context/ReShopContext";
+
+// Components
+import StarRating from "./StarRating";
 
 function DisplayReviews(props) {
   const { getProduct, getAvgRating } = useContext(ShopContext);
@@ -10,32 +13,30 @@ function DisplayReviews(props) {
 
   // Get reviews for current product
   const reviews = getProduct(id).reviews;
-  const avgRating = getAvgRating(id);
-
-  console.log(avgRating);
+  const avgRating = Math.round(getAvgRating(id) * 10) / 10;
 
   // HTML
   let jsx;
   if (reviews) {
     jsx = reviews.map((item) => {
       return (
-        <div>
-          <div></div>
-          <span>{item.rating}</span>
-          <div>{item.review}</div>
+        <div key={Math.random()} className="review-item">
+          <StarRating id={id} itemRating={item.rating} showCount={false} />
+          <div className="review-item__message">{item.review}</div>
         </div>
       );
     });
   } else {
-    return <div>No reviews found!</div>;
+    return <div className="reviews-title">No reviews found!</div>;
   }
-
-  console.log(reviews);
 
   return (
     <div className="reviews-container">
-      <div>Reviews</div>
-      <div>{jsx}</div>
+      <div className="reviews-title">
+        <span className="reviews__avg-rating">{avgRating} / 5</span> average
+        based on {reviews.length} reviews
+      </div>
+      <div className="review-items__container">{jsx}</div>
     </div>
   );
 }

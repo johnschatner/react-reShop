@@ -4,13 +4,18 @@ import { ShopContext } from "../../context/ReShopContext";
 
 function StarRating(props) {
   const { getProduct, getAvgRating } = useContext(ShopContext);
-  const { id } = props;
+  const { id, showCount, itemRating } = props;
   const product = getProduct(id);
-  const { reviews } = product;
+  let reviews;
+
+  // Check if product has reviews
+  if (product.reviews) {
+    reviews = product.reviews;
+  }
 
   const reviewsExist = reviews !== undefined ? true : false;
 
-  const rating = getAvgRating(id);
+  const rating = itemRating ? itemRating : getAvgRating(id);
 
   return (
     <div className="star-rating">
@@ -41,9 +46,11 @@ function StarRating(props) {
           <ion-icon name="star"></ion-icon>
         </span>
       </div>
-      <div className="star-rating__count">
-        {reviewsExist ? <span>({reviews.length})</span> : <span>(0)</span>}
-      </div>
+      {showCount && (
+        <div className="star-rating__count">
+          {reviewsExist ? <span>({reviews.length})</span> : <span>(0)</span>}
+        </div>
+      )}
     </div>
   );
 }

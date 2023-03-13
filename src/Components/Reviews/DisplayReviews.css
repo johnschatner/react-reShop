@@ -1,0 +1,28 @@
+.reviews-container {
+  margin-bottom: 1rem;
+}
+
+.review-items__container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.reviews-title {
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+.reviews__avg-rating {
+  font-size: 1.25rem;
+  margin-right: 0.25rem;
+}
+
+.review-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.review-item__message {
+  color: rgb(75, 75, 75);
+  font-weight: 300;
+}

@@ -25,7 +25,7 @@
   backdrop-filter: saturate(180%) blur(10px);
   background-color: var(--globalnav-background-opaque);
 
-  transition: 300ms var(--globaltransition-header);
+  transition: 700ms var(--globaltransition-header);
 
   gap: 2rem;
 }
@@ -69,9 +69,9 @@
   height: auto;
   min-height: 250px;
   opacity: 0.4;
-  transition: 600ms var(--globaltransition-header),
-    color 400ms var(--globaltransition-header),
-    opacity 400ms var(--globaltransition-header);
+  transition: 800ms var(--globaltransition-header),
+    color 800ms var(--globaltransition-header),
+    opacity 800ms var(--globaltransition-header);
   background-color: var(--globalnav-background-light);
   color: transparent;
 }
@@ -113,7 +113,7 @@
   scale: 0;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  transition: 600ms opacity cubic-bezier(0.15, 0.8, 0, 1), 0ms scale;
+  transition: 1000ms opacity cubic-bezier(0.15, 0.8, 0, 1), 0ms scale;
 }
 .header-overlay.open {
   background: rgba(22, 22, 23, 0.9);

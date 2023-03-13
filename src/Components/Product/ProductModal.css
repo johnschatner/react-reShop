@@ -16,8 +16,33 @@
 }
 @media (min-width: 600px) {
   .product-modal {
-    min-width: 400px;
+    min-width: 600px;
+    max-width: 700px;
   }
+}
+
+.product-modal__content {
+  display: flex;
+}
+.product-modal-right > * {
+  margin-bottom: 1rem;
+}
+
+.product-modal__gallery img {
+  max-width: 300px;
+}
+
+.product-modal__name {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+.product-modal__price {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.product-modal__desc {
+  color: rgb(86, 86, 86);
+  font-weight: 300;
 }
 
 .product-modal__overlay {
