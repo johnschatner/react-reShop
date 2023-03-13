@@ -17,7 +17,7 @@ function CartItem(props) {
       <div className="cart-item__left">
         <div className="cart-item__thumb">
           <a>
-            <img src={`/src/products/${thumbnail}.avif`} alt={name} />
+            <img src={thumbnail} alt={name} />
           </a>
         </div>
         <div className="cart-item__name">{name}</div>

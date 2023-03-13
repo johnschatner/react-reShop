@@ -44,7 +44,7 @@ function Product(props) {
         >
           <div className="product__thumb">
             <div className="img">
-              <img src={`/src/products/${thumbnail}.avif`} alt={name} />
+              <img src={thumbnail} alt={name} />
             </div>
           </div>
         </a>

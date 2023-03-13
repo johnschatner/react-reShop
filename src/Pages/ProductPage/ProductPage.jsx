@@ -55,14 +55,11 @@ function ProductPage() {
               <div className="product-gallery">
                 <Splide aria-label="Product Gallery">
                   <SplideSlide>
-                    <img src={`/src/products/${thumbnail}.avif`} alt={name} />
+                    <img src={thumbnail} alt={name} />
                   </SplideSlide>
                   {secondaryThumbExists && (
                     <SplideSlide>
-                      <img
-                        src={`/src/products/${secondaryThumbnail}.avif`}
-                        alt={name}
-                      />
+                      <img src={secondaryThumbnail} alt={name} />
                     </SplideSlide>
                   )}
                 </Splide>

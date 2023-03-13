@@ -41,7 +41,7 @@ function ProductModal(props) {
             <div className="product-modal__content">
               <div className="product-modal-left">
                 <div className="product-modal__gallery">
-                  <img src={`/src/products/${thumbnail}.avif`} alt={name} />
+                  <img src={thumbnail} alt={name} />
                 </div>
               </div>
               <div className="product-modal-right">
