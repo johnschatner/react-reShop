@@ -15,7 +15,7 @@ function SearchItem(props) {
       <div className="search-item__left">
         <div className="search-item__thumb">
           <a>
-            <img src={`/src/products/${thumbnail}.avif`} alt={name} />
+            <img src={thumbnail} alt={name} />
           </a>
         </div>
         <div className="search-item__name">{name}</div>
