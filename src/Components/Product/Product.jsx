@@ -38,18 +38,22 @@ function Product(props) {
   return (
     <div className="product-card">
       <div className="product__image">
-        <div className="product__thumb">
-          <a
-            onMouseDown={(e) => e.preventDefault()}
-            onClick={navigateToProductPage}
-          >
-            <img src={`/src/products/${thumbnail}.avif`} alt={name} />
-          </a>
-        </div>
+        <a
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={navigateToProductPage}
+        >
+          <div className="product__thumb">
+            <div className="img">
+              <img src={`/src/products/${thumbnail}.avif`} alt={name} />
+            </div>
+          </div>
+        </a>
       </div>
       <div className="product__content">
         <div className="product__name">
-          <span>{name}</span>
+          <a className="btn-link" onClick={navigateToProductPage}>
+            <span>{name}</span>
+          </a>
         </div>
         <StarRating id={id} showCount={true}></StarRating>
         <div className="product-content__box">
