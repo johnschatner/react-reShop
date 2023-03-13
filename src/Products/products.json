@@ -18,6 +18,10 @@
     "price": 50,
     "thumbnail": "images/2-front",
     "secondaryThumbnail": "images/2-back",
+    "reviews": [
+      { "rating": 3, "review": "Not bad" },
+      { "rating": 2, "review": "Kinda bad" }
+    ],
     "headline": "Set Your Workspace Apart",
     "description": "The desk pad brings visual structure and organization to your workspace, with premium 3mm thick virgin Merino Wool Felt. The natural material provides warmth and softness. It accents any desktop, from natural wood grain to white or laminate."
   },
@@ -27,6 +31,10 @@
     "price": 50,
     "thumbnail": "images/3-front",
     "secondaryThumbnail": "images/3-back",
+    "reviews": [
+      { "rating": 3, "review": "Not bad" },
+      { "rating": 2, "review": "Kinda bad" }
+    ],
     "headline": "Define Your Space",
     "description": "The matte desk pad brings visual structure and organization to your workspace. The soft, smooth texture is perfect as a writing surface. It accents any desktop, from natural wood grain to white or laminate."
   },
@@ -90,6 +98,10 @@
     "price": 80,
     "thumbnail": "images/10-front",
     "secondaryThumbnail": "",
+    "reviews": [
+      { "rating": 3, "review": "Not bad" },
+      { "rating": 2, "review": "Kinda bad" }
+    ],
     "headline": "Well Noted",
     "description": "Our refillable notepad is there when you need to jot a note or doodle, with a narrow profile that fits into the spaces at your desk. A solid, ceramic-coated, machined aluminum base anchors your note taking. 70# paper with a subtle dot grid on both sides is reversible and clean—flip pages without leaving a torn stub.\n\n      Refillable for a lifetime of note taking. Notepad comes with 70 sheets of paper.\n      Drag\n      Profile view of aluminum metal desk notepad on natural leather desk pad."
   }

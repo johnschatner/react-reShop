@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
+import { useContext } from "react";
+
+// Context
+import { ShopContext } from "../../context/ReShopContext";
 
 // Components
 import ProductGrid from "../../Components/Product/ProductGrid";
 
 function HomePage() {
-  console.log("In HomePage");
+  const { PRODUCTS } = useContext(ShopContext);
+  console.log("In HomePage", PRODUCTS);
 
   return (
     <motion.div
