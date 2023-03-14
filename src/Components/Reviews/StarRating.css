@@ -15,6 +15,7 @@
 }
 
 .star-rating__count {
+  opacity: 0.5;
   font-size: 0.8rem;
   margin-top: -3px;
 }
