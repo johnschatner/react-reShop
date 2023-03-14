@@ -1,12 +1,27 @@
 .product-gallery {
-  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
 }
 
-.product-slides {
+.product-gallery__active-image {
   position: relative;
+  padding: 2rem;
+}
+.product-gallery__active-image::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  font-size: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.product-gallery__thumbnails {
+  display: flex;
+  gap: 0.75rem;
   cursor: pointer;
 }

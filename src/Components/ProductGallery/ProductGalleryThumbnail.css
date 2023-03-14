@@ -1,0 +1,33 @@
+.product-gallery__thumbnail img {
+  max-width: 100%;
+}
+
+.product-gallery__thumbnail {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  padding: 0.5rem;
+  max-width: 100px;
+}
+.product-gallery__thumbnail::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  transition: 150ms var(--globaltransition-header);
+  scale: 1;
+  background-color: rgba(0, 0, 0, 0.02);
+  outline: 1px solid rgba(0, 0, 0, 0.02);
+}
+.product-gallery__thumbnail:hover::before {
+  scale: 1.05;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.product-gallery__thumbnail:active::before {
+  scale: 0.97;
+  background-color: rgba(0, 0, 0, 0.06);
+}

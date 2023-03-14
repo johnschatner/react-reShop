@@ -1,11 +1,11 @@
 import "./ProductGallery.css";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 
 // Context
 import { ShopContext } from "../../context/ReShopContext";
 
 // Components
-import ProductSlide from "../../Components/ProductGallery/ProductSlide";
+import ProductGalleryThumbnail from "./ProductGalleryThumbnail";
 
 function ProductGallery(props) {
   const { id } = props;
@@ -18,18 +18,30 @@ function ProductGallery(props) {
   // Create gallery array
   const gallery = [thumbnail, secondaryThumbnail];
 
+  // Product gallery methods
+  const [activeImage, setActiveImage] = useState(thumbnail);
+  const changeImage = (src) => {
+    setActiveImage(src);
+  };
+
   // Iterate over available thumbnails and
   // return a slide component for each image
-  const slides = gallery.map((imgSrc, i) => {
-    return <ProductSlide key={i} src={imgSrc}></ProductSlide>;
+  const thumbnails = gallery.map((imgSrc, i) => {
+    return (
+      <ProductGalleryThumbnail
+        key={i}
+        onEvent={changeImage}
+        src={imgSrc}
+      ></ProductGalleryThumbnail>
+    );
   });
 
   return (
     <div className="product-gallery">
-      <div className="product-slides">
-        {/* Render available product images as slides*/}
-        {slides}
+      <div className="product-gallery__active-image">
+        <img src={activeImage} alt="" />
       </div>
+      <div className="product-gallery__thumbnails">{thumbnails}</div>
     </div>
   );
 }
