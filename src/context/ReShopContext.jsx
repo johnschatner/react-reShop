@@ -29,8 +29,10 @@ export const ShopContextProvider = (props) => {
 
   const [categories, setCategories] = useState(getCategories());
 
-  const getProductsInCategory = (category) => {
-    const products = PRODUCTS.filter((p) => p.category === category);
+  const getProductsInCategory = (category, exclude) => {
+    const products = PRODUCTS.filter(
+      (p) => p.category === category && exclude?.id !== p.id
+    );
     return products;
   };
 

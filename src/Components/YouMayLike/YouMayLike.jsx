@@ -8,14 +8,14 @@ import { ShopContext } from "../../context/ReShopContext";
 import Product from "../Product/Product";
 
 function YouMayLike(props) {
-  const { PRODUCTS, getProduct, getProductsInCategory } =
-    useContext(ShopContext);
+  const { getProduct, getProductsInCategory } = useContext(ShopContext);
   const { id } = props;
   const currentProduct = getProduct(id);
 
   // Get products based on current product category
   const productsInCurrentCategory = getProductsInCategory(
-    currentProduct.category
+    currentProduct.category,
+    currentProduct
   );
 
   // Iterate over returned array and return a product component

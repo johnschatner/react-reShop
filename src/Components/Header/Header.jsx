@@ -10,6 +10,7 @@ import OpenCart from "./Cart/OpenCart";
 import CartWindow from "./Cart/CartWindow";
 import Search from "./Search/Search";
 import SearchWindow from "./Search/SearchWindow";
+import Navigation from "./Navigation/Navigation";
 
 function Header() {
   const { headerOpen, closeHeader, viewingCart, isSearching } =
@@ -18,12 +19,13 @@ function Header() {
   return (
     <header className={`header-content ${headerOpen ? "open" : ""}`}>
       <div className="logo">
-        <Link to="/" className="icon-btn">
+        <Link to="/" className="icon-btn nav-link">
           <ion-icon name="logo-apple-ar"></ion-icon>
           <span className="logo-name">ReShop</span>
         </Link>
       </div>
       <div className="header-content__left">
+        <Navigation />
         <Search />
       </div>
       <div className="header-content__right">

@@ -12,7 +12,7 @@
 }
 
 .product-page__nav {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .product-wrapper {
@@ -22,12 +22,12 @@
 .product-container {
   display: flex;
   background-color: white;
-  padding: 2rem;
+  padding-inline: 0.5rem;
   gap: 4rem;
 }
 
 .product-lower-content {
-  padding: 2rem;
+  padding: 2rem 0.5rem;
   background-color: white;
 }
 
@@ -44,6 +44,10 @@
 
 .product-content > div {
   margin-bottom: 0.75rem;
+}
+
+.addToCart-container {
+  margin-top: 1.5rem;
 }
 
 .product-title {

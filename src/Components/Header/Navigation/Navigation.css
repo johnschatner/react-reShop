@@ -1,0 +1,14 @@
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-right: 4rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+.nav-links * {
+  text-decoration: none;
+}

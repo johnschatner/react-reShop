@@ -2,6 +2,9 @@ import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 
+// Fix bug in react router that makes scroll position unreliable
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
+
 // Pages
 import HomePage from "../../Pages/HomePage/HomePage";
 import SearchPage from "../../Pages/SearchPage/SearchPage";
@@ -12,6 +15,7 @@ function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
+      <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage />} />
         <Route path="/:testValue" element={<SearchPage />} />

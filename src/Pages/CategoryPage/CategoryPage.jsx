@@ -25,13 +25,15 @@ function CategoryPage() {
       initial={{ opacity: 0, scale: 0.97 }}
       animate={{ opacity: 1, scale: 1 }}
     >
-      <div className="category-page-title">
-        <span className="category-page-title__sub">Browsing</span>
-        <span className="category-page-title__category">
-          {matchingCategory}
-        </span>
+      <div className="category-page-wrapper">
+        <div className="category-page-title">
+          <span className="category-page-title__sub">Browsing</span>
+          <span className="category-page-title__category">
+            {matchingCategory}
+          </span>
+        </div>
+        <ProductGrid category={matchingCategory} />
       </div>
-      <ProductGrid category={matchingCategory} />
     </motion.div>
   );
 }

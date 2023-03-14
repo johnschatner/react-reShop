@@ -1,11 +1,19 @@
-.logo * {
+.nav-link * {
   color: rgb(219, 219, 219);
   text-decoration: none;
+  font-weight: 300;
   transition: 250ms var(--globaltransition-header);
 }
-.logo:hover *,
-.logo:active * {
+.nav-link:hover *,
+.nav-link:active * {
   color: rgb(237, 237, 237);
+}
+
+.logo {
+  margin-right: 2rem;
+}
+.logo * {
+  text-decoration: none;
 }
 .logo-name {
   margin-left: 0.5rem;
@@ -44,7 +52,7 @@
 .header-content.open input[type="text"].form-control {
   color: rgba(0, 0, 0, 0.8);
 }
-.header-content.open .logo-name {
+.header-content.open .nav-link * {
   color: rgba(0, 0, 0, 0.8);
 }
 .header-content.open .cart-count {
@@ -53,6 +61,10 @@
 
 .header-content__left .flex {
   gap: 2rem;
+}
+
+.header-content__left {
+  display: flex;
 }
 
 .header-window {
