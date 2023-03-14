@@ -11,6 +11,7 @@ import StarRating from "../../Components/Reviews/StarRating";
 import AddReview from "../../Components/Reviews/AddReview";
 import DisplayReviews from "../../Components/Reviews/DisplayReviews";
 import ProductGallery from "../../Components/ProductGallery/ProductGallery";
+import YouMayLike from "../../Components/YouMayLike/YouMayLike";
 
 function ProductPage() {
   const { pathname } = useLocation();
@@ -55,11 +56,10 @@ function ProductPage() {
             <div className="product-lower-content">
               <div className="product-headline">{headline}</div>
               <div className="product-desc">{description}</div>
-              <br></br>
               <DisplayReviews id={id} />
-              <br></br>
               <AddReview id={id} />
             </div>
+            <YouMayLike id={id}></YouMayLike>
           </main>
         </div>
       </div>

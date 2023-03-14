@@ -16,6 +16,24 @@ export const ShopContextProvider = (props) => {
     return PRODUCTS[index];
   };
 
+  // CATEGORIES
+  const getCategories = () => {
+    const categories = [];
+    PRODUCTS.forEach((item) => {
+      if (!categories.includes(item.category)) {
+        categories.push(item.category);
+      }
+    });
+    return categories;
+  };
+
+  const [categories, setCategories] = useState(getCategories());
+
+  const getProductsInCategory = (category) => {
+    const products = PRODUCTS.filter((p) => p.category === category);
+    return products;
+  };
+
   // ALERTS
 
   const defaultMessages = {
@@ -102,6 +120,9 @@ export const ShopContextProvider = (props) => {
   const contextValue = {
     PRODUCTS,
     getProduct,
+    categories,
+    setCategories,
+    getProductsInCategory,
     cartItems,
     cartQuantity,
     addToCart,

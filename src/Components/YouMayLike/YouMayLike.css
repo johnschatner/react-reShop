@@ -1,0 +1,14 @@
+.you-may-like-this {
+  padding: 1rem;
+}
+
+.sp-title {
+  padding-inline: 1rem;
+  font-size: 1.75rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+}
+
+.sp-products {
+  display: flex;
+}
