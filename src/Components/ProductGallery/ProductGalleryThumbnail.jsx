@@ -1,14 +1,17 @@
 import "./ProductGalleryThumbnail.css";
 
 function ProductGalleryThumbnail(props) {
-  const { src } = props;
+  const { src, activeImage } = props;
 
   const onEvent = () => {
     props.onEvent(src);
   };
 
   return (
-    <div onClick={onEvent} className="product-gallery__thumbnail">
+    <div
+      onClick={onEvent}
+      className={`pg__thumbnail ${activeImage === src ? "active" : ""}`}
+    >
       <img src={src} alt="" />
     </div>
   );

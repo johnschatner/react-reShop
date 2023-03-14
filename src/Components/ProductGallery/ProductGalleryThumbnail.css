@@ -1,15 +1,18 @@
-.product-gallery__thumbnail img {
+.pg__thumbnail img {
   max-width: 100%;
 }
 
-.product-gallery__thumbnail {
+.pg__thumbnail {
   position: relative;
   display: inline-block;
   user-select: none;
   padding: 0.5rem;
   max-width: 100px;
 }
-.product-gallery__thumbnail::before {
+.pg__thumbnail.active::before {
+  outline: 1px solid rgba(0, 0, 0, 0.16);
+}
+.pg__thumbnail::before {
   content: "";
   display: block;
   position: absolute;
@@ -23,11 +26,11 @@
   background-color: rgba(0, 0, 0, 0.02);
   outline: 1px solid rgba(0, 0, 0, 0.02);
 }
-.product-gallery__thumbnail:hover::before {
+.pg__thumbnail:hover::before {
   scale: 1.05;
   background-color: rgba(0, 0, 0, 0.04);
 }
-.product-gallery__thumbnail:active::before {
+.pg__thumbnail:active::before {
   scale: 0.97;
   background-color: rgba(0, 0, 0, 0.06);
 }

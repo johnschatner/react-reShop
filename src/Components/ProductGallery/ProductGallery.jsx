@@ -16,12 +16,25 @@ function ProductGallery(props) {
   // Object destructuring (get thumbnails)
   const { thumbnail, secondaryThumbnail } = product;
   // Create gallery array
-  const gallery = [thumbnail, secondaryThumbnail];
+  const multipleImagesExist = secondaryThumbnail !== "" ? true : false;
+  let gallery;
+  if (multipleImagesExist) {
+    gallery = [thumbnail, secondaryThumbnail];
+  } else {
+    gallery = [thumbnail];
+  }
 
   // Product gallery methods
   const [activeImage, setActiveImage] = useState(thumbnail);
   const changeImage = (src) => {
     setActiveImage(src);
+  };
+  const navigation = () => {
+    if (activeImage === thumbnail && multipleImagesExist) {
+      setActiveImage(secondaryThumbnail);
+    } else {
+      setActiveImage(thumbnail);
+    }
   };
 
   // Iterate over available thumbnails and
@@ -31,17 +44,24 @@ function ProductGallery(props) {
       <ProductGalleryThumbnail
         key={i}
         onEvent={changeImage}
+        activeImage={activeImage}
         src={imgSrc}
       ></ProductGalleryThumbnail>
     );
   });
 
   return (
-    <div className="product-gallery">
-      <div className="product-gallery__active-image">
+    <div className="pg no-highlight">
+      <div className="pg__active-image">
+        <div onClick={navigation} className="pg__nav pg__prev">
+          <ion-icon name="chevron-back"></ion-icon>
+        </div>
+        <div onClick={navigation} className="pg__nav pg__next">
+          <ion-icon name="chevron-forward"></ion-icon>
+        </div>
         <img src={activeImage} alt="" />
       </div>
-      <div className="product-gallery__thumbnails">{thumbnails}</div>
+      <div className="pg__thumbnails">{thumbnails}</div>
     </div>
   );
 }
