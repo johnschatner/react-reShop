@@ -1,6 +1,10 @@
 .product-category {
   text-transform: uppercase;
+  cursor: pointer;
   opacity: 0.5;
   letter-spacing: 0.2em;
   font-size: 0.75rem;
+}
+.product-category:hover {
+  text-decoration: underline;
 }

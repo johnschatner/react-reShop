@@ -9,7 +9,7 @@ import ProductGrid from "../../Components/Product/ProductGrid";
 
 function HomePage() {
   const { PRODUCTS } = useContext(ShopContext);
-  console.log("In HomePage", PRODUCTS);
+  console.log(PRODUCTS);
 
   return (
     <motion.div

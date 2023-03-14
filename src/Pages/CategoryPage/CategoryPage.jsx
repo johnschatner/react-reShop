@@ -18,8 +18,6 @@ function CategoryPage() {
     (cat) => cat.toLowerCase() === category
   );
 
-  console.log("In CategoryPage");
-
   return (
     <motion.div
       // Prop that will animate when component is removed from DOM

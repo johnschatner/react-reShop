@@ -21,7 +21,7 @@ function ProductPage() {
   const productId = pathname.split("&id=")[1];
   const product = getProduct(productId);
 
-  const { id, name, price, category, description, headline } = product;
+  const { id, name, price, description, headline } = product;
 
   return (
     <motion.div
