@@ -3,11 +3,6 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
 
-// Splide
-// Default theme
-import "@splidejs/react-splide/css";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-
 // Context
 import { ShopContext } from "../../context/ReShopContext";
 
@@ -15,6 +10,7 @@ import { ShopContext } from "../../context/ReShopContext";
 import StarRating from "../../Components/Reviews/StarRating";
 import AddReview from "../../Components/Reviews/AddReview";
 import DisplayReviews from "../../Components/Reviews/DisplayReviews";
+import ProductGallery from "../../Components/ProductGallery/ProductGallery";
 
 function ProductPage() {
   const { pathname } = useLocation();
@@ -23,18 +19,7 @@ function ProductPage() {
   const productId = pathname.split("&id=")[1];
   const product = getProduct(productId);
 
-  const {
-    id,
-    name,
-    price,
-    thumbnail,
-    secondaryThumbnail,
-    description,
-    headline,
-    reviews,
-  } = product;
-
-  const secondaryThumbExists = secondaryThumbnail.length > 0;
+  const { id, name, price, description, headline } = product;
 
   return (
     <motion.div
@@ -52,18 +37,7 @@ function ProductPage() {
           </nav>
           <main className="product-wrapper">
             <div className="product-container">
-              <div className="product-gallery">
-                <Splide aria-label="Product Gallery">
-                  <SplideSlide>
-                    <img src={thumbnail} alt={name} />
-                  </SplideSlide>
-                  {secondaryThumbExists && (
-                    <SplideSlide>
-                      <img src={secondaryThumbnail} alt={name} />
-                    </SplideSlide>
-                  )}
-                </Splide>
-              </div>
+              <ProductGallery id={id} />
               <div className="product-content">
                 <div className="product-title">{name}</div>
                 <div className="product-price">${price}</div>

@@ -17,7 +17,6 @@
 
 .product-wrapper {
   border-radius: 99px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .product-container {
@@ -41,13 +40,6 @@
 .product-container * {
   color: rgb(86, 86, 86);
   font-weight: 300;
-}
-
-.product-gallery {
-  max-width: 400px;
-}
-.product-gallery img {
-  max-width: 400px;
 }
 
 .product-content > div {

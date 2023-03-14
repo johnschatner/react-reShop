@@ -1,0 +1,12 @@
+.product-gallery {
+  max-width: 400px;
+}
+
+.product-slides {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0;
+  cursor: pointer;
+}

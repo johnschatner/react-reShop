@@ -1,0 +1,9 @@
+.product-slide img {
+  max-width: 100%;
+}
+
+.product-slide {
+  display: inline-block;
+  user-select: none;
+  width: 50%;
+}
