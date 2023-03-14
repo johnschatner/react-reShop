@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "../../Pages/HomePage/HomePage";
 import SearchPage from "../../Pages/SearchPage/SearchPage";
 import ProductPage from "../../Pages/ProductPage/ProductPage";
+import CategoryPage from "../../Pages/CategoryPage/CategoryPage";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -15,6 +16,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/:testValue" element={<SearchPage />} />
         <Route path="/product/:product" element={<ProductPage />} />
+        <Route path="/category/:category" element={<CategoryPage />} />
       </Routes>
     </AnimatePresence>
   );

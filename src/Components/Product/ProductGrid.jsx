@@ -9,15 +9,19 @@ import Product from "./Product";
 
 function ProductGrid(props) {
   // Load global products
-  const { PRODUCTS } = useContext(ShopContext);
+  const { PRODUCTS, getProductsInCategory } = useContext(ShopContext);
 
-  const { searchResults } = props;
+  const { searchResults, category } = props;
 
   let products;
 
   // Check if we're searching or on the homepage
   if (searchResults) {
     products = searchResults.map((p) => {
+      return <Product key={p.id} product={p} />;
+    });
+  } else if (category) {
+    products = getProductsInCategory(category).map((p) => {
       return <Product key={p.id} product={p} />;
     });
   } else {

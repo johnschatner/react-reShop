@@ -12,6 +12,7 @@ import AddReview from "../../Components/Reviews/AddReview";
 import DisplayReviews from "../../Components/Reviews/DisplayReviews";
 import ProductGallery from "../../Components/ProductGallery/ProductGallery";
 import YouMayLike from "../../Components/YouMayLike/YouMayLike";
+import ProductCategory from "../../Components/ProductCategory/ProductCategory";
 
 function ProductPage() {
   const { pathname } = useLocation();
@@ -20,7 +21,7 @@ function ProductPage() {
   const productId = pathname.split("&id=")[1];
   const product = getProduct(productId);
 
-  const { id, name, price, description, headline } = product;
+  const { id, name, price, category, description, headline } = product;
 
   return (
     <motion.div
@@ -40,6 +41,7 @@ function ProductPage() {
             <div className="product-container">
               <ProductGallery id={id} />
               <div className="product-content">
+                <ProductCategory id={id} />
                 <div className="product-title">{name}</div>
                 <div className="product-price">${price}</div>
                 <StarRating id={id} showCount={true} />
