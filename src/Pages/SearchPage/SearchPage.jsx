@@ -1,3 +1,4 @@
+import "./SearchPage.css";
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -48,7 +49,13 @@ function SearchPage() {
   }
 
   // Make the search caption a little nicer
-  const caption = searchString;
+  const caption = searchString
+    .toLowerCase()
+    .split(" ")
+    .map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
 
   return (
     <motion.div
@@ -59,9 +66,9 @@ function SearchPage() {
     >
       <div className="category-page-wrapper">
         <div className="category-page-title">
-          <span className="category-page-title__sub">Searching for</span>
+          <span className="category-page-title__sub">Search</span>
           <span className="category-page-title__category">{caption}</span>
-          <span>
+          <span className="search-result-count">
             {results.length} result
             {results.length > 1 ? "s" : null}
           </span>
