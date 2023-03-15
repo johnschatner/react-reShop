@@ -47,6 +47,9 @@ function SearchPage() {
     );
   }
 
+  // Make the search caption a little nicer
+  const caption = searchString;
+
   return (
     <motion.div
       // Prop that will animate when component is removed from DOM
@@ -54,11 +57,15 @@ function SearchPage() {
       initial={{ opacity: 0, scale: 0.97 }}
       animate={{ opacity: 1, scale: 1 }}
     >
-      <div>
-        <span>
-          Your search for "{searchString}" gave {results.length} result
-          {results.length > 1 ? "s" : null}
-        </span>
+      <div className="category-page-wrapper">
+        <div className="category-page-title">
+          <span className="category-page-title__sub">Searching for</span>
+          <span className="category-page-title__category">{caption}</span>
+          <span>
+            {results.length} result
+            {results.length > 1 ? "s" : null}
+          </span>
+        </div>
         <div>{searchEls}</div>
       </div>
     </motion.div>
