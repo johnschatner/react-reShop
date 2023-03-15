@@ -1,11 +1,16 @@
 import "./ProductModal.css";
+import { useContext } from "react";
+
+// Context
+import { ShopContext } from "../../context/ReShopContext";
 
 // Components
 import AddReview from "../Reviews/AddReview";
 import DisplayReviews from "../Reviews/DisplayReviews";
 
 function ProductModal(props) {
-  const { id, name, description, price, thumbnail, reviews } = props.product;
+  const { id, name, description, price, thumbnail } = props.product;
+  const { addToCart } = useContext(ShopContext);
 
   const handleClose = (e) => {
     // FadeOut
@@ -47,6 +52,12 @@ function ProductModal(props) {
               <div className="product-modal-right">
                 <div className="product-modal__name">{name}</div>
                 <div className="product-modal__price">${price}</div>
+                <button
+                  onClick={() => addToCart(id)}
+                  className="addToCart re-btn"
+                >
+                  Add to cart
+                </button>
                 <div className="product-modal__desc">{description}</div>
               </div>
             </div>

@@ -77,7 +77,7 @@ export const ShopContextProvider = (props) => {
   const cartQuantity = Object.values(cartItems).reduce((a, b) => a + b, 0);
 
   const clearCart = () => {
-    setCartItems(() => getDefaultCart());
+    setCartItems(() => initCart());
   };
 
   // REVIEWS

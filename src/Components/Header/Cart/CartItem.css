@@ -10,6 +10,10 @@
   gap: 2rem;
 }
 
+.cart-item__left {
+  cursor: pointer;
+}
+
 /*Thumbnail*/
 .cart-item__thumb {
   display: flex;

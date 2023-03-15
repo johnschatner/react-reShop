@@ -1,3 +1,4 @@
+import "./OpenCart.css";
 import { useContext } from "react";
 
 // Context
