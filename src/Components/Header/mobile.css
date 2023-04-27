@@ -23,4 +23,7 @@
   .header-overlay {
     top: 95px;
   }
+  .search-item > div {
+    gap: 0.5rem !important;
+  }
 }
