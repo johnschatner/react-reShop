@@ -1,4 +1,5 @@
 import "./App.css";
+import "./app-mobile.css";
 import { BrowserRouter as Router } from "react-router-dom";
 
 // Context

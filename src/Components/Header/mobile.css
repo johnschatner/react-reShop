@@ -1,0 +1,26 @@
+@media (max-width: 768px) {
+  .header-content {
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  .header-content__left {
+    order: 2;
+    width: 100%;
+  }
+  .header-content__left .flex {
+    width: 100%;
+  }
+  .header-content__left .search-form {
+    flex: 1;
+  }
+  .navbar {
+    display: none !important;
+  }
+  .logo {
+    margin-right: 0;
+  }
+  .header-window,
+  .header-overlay {
+    top: 95px;
+  }
+}
